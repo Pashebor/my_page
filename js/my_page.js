@@ -1,7 +1,7 @@
 function changeFlask() {
     var images = [{
-            url: "img/colba1.png", // Картинка
-            timeout: 1000 // Задержка для картинки
+            url: "img/colba1.png", // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            timeout: 1000 // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         }, {
             url: "img/colba2.png",
             timeout: 1000
