@@ -1,3 +1,13 @@
+
+@font-face {
+    font-family: FontAwesome;
+    src: url('../fonts/fontawesome-webfont.eot?v=3.0.1');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+    url('../fonts/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+    url('../fonts/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 @font-face {
     font-family: Cronus;
     src: url('../fonts/Cronus%20Round.otf');
@@ -6,22 +16,73 @@
     font-family: Matias;
     src: url('../fonts/Matias.otf');
 }
+
+@font-face {
+    font-family: Qlassik;
+    src: url('../fonts/Qlassik.ttf');
+}
+
 body{
-    background-color: black;
+    background-color: #2B2929;
 }
 .container{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 .header{
     display: flex;
     flex-direction: row;
-    background-color: #8BAF55;
+    background-color: #4e414a;
+    width: 100%;
+
 }
 
-.header h1{
+.header p{
+    margin-top: 5px;
     font-family: Matias;
-    font-size: 30pt;
+    font-size: 15pt;
+    letter-spacing: -1px;
+    font-weight: 600;
+}
+
+.header img{
+  padding-left: 10px;
+  margin-top: 5px;
+  width: 20px;
+  height: 50px;
+}
+
+.home{
+    font-family: Qlassik;
+    font-size: 12pt;
+    color: #dbdbdb;
+    margin-top: 10px;
+    padding-left: 10%;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+.home:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f015';
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    background-color: #ebeaea;
+    width: 100%;
+}
+
+.footer{
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    background-color: #4e414a;
+    width: 100%;
+    bottom: 0;
 }
 .circle{
     position: absolute;
@@ -41,9 +102,10 @@ body{
 
 .wave{
     position: absolute;
-    top: 0;
-    width: 50px;
-    height: 50px;
+    z-index: 1;
+    top: -1px;
+    width: 48px;
+    height: 48px;
     border: 2px solid white;
     border-radius: 50%;
     margin-left: calc(50% - 26px);
@@ -68,8 +130,8 @@ body{
 }
 
 @keyframes waves {
-    from{width: 50px;height: 50px; border-radius: 50%;}
-    to{width: 200px; height: 200px; border-radius: 50%; border: 6px solid white; margin-left: calc(50% - 105px); transform: translateY(-75px);}
+    from{width: 48px;height: 48px; border-radius: 50%; opacity: 1;}
+    to{width: 200px; height: 200px; border-radius: 50%; border: 6px solid white; opacity: 0; transform: translate(-78px,-78px);}
 }
 /*@-webkit-keyframes  circleAnimationOut{
     from{width: 50px; height: 50px; margin-left: calc(50% - 25px); top: 40%; border-radius: 25px;}

@@ -1,12 +1,13 @@
-function changeFlask() {
+function changeFlask(image1, image2, image3, id) {
+    var idEl = id;
     var images = [{
-            url: "img/colba1.png", // Картинка
-            timeout: 1000 // Задержка для картинки
+            url: image1, // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            timeout: 1000 // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         }, {
-            url: "img/colba2.png",
+            url: image2,
             timeout: 1000
         },{
-            url: "img/colba3.png",
+            url: image3,
             timeout: 1000
         }],
         i = 0,
@@ -15,7 +16,7 @@ function changeFlask() {
 
     function changeImages() {
         clearTimeout(timeout);
-        $('#flask').attr('src', function() {
+        $(idEl).attr('src', function() {
             if (i >= images.length)
                 i = 0;
 
@@ -40,7 +41,6 @@ $(window).on('load', function () {
         'animation-iteration-count' : '1',
         'width' : '50px',
         'height' : '50px',
-        /*'margin-left' : 'calc(50% - 25px)',*/
         'top': '40%',
         'border-radius' : '25px',
         'cursor' : 'pointer'
@@ -53,7 +53,7 @@ $(window).on('load', function () {
            circle.hover(function () {
               wave.css({
                   'animation' : 'waves',
-                  'animation-duration' : '7s',
+                  'animation-duration' : '500ms',
                   'animation-iteration-count' : '1'
               });
            },
@@ -63,7 +63,7 @@ $(window).on('load', function () {
            );
        }, 1000);
     container.hide();
-    changeFlask();
+    changeFlask('img/colba1.png', 'img/colba2.png', 'img/colba3.png', '#flask');
 });
 
 $(document).ready( function() {
@@ -82,12 +82,14 @@ $(document).ready( function() {
            'height' : '100%',
            'margin-left' : '0',
            'top': '0',
-           'border-radius' : '0'
+           'border-radius' : '0',
+           'cursor' : 'default'
        });
-       wave.css('animation', 'none');
-       container.fadeIn('slow').css({
-           'position': 'absolute'
-       });
+       wave.hide();
        }, 500);
+       setTimeout( function () {
+           container.fadeIn('slow').css('position', 'absolute');
+           changeFlask('img/flaskLogo1.png', 'img/flaskLogo2.png', 'img/flaskLogo.png', '#flaskLogo');
+       }, 1500);
    });
 });
