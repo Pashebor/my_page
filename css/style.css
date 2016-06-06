@@ -1,0 +1,78 @@
+@font-face {
+    font-family: Cronus;
+    src: url('../fonts/Cronus%20Round.otf');
+}
+@font-face {
+    font-family: Matias;
+    src: url('../fonts/Matias.otf');
+}
+body{
+    background-color: black;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: #8BAF55;
+}
+
+.header h1{
+    font-family: Matias;
+    font-size: 30pt;
+}
+.circle{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: calc(50% - 350px);
+}
+#flask{
+    margin-top: 4%;
+    margin-left: calc(50% - 7px);
+}
+
+.wave{
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-left: calc(50% - 26px);
+}
+
+/*.container{
+    display: none;
+}*/
+@keyframes circleAnimationIn {
+    from{width: 700px; height: 700px; top: 0; border-radius: 50%;}
+    to{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 40%; border-radius: 50%;}
+}
+/*@-webkit-keyframes  circleAnimationIn{
+    from{width: 100%; height: 100%; margin-left: 0; top: 0; border-radius: 100%;}
+    to{width: 50px; height: 50px; margin-left: calc(50% - 25px); top: 40%; border-radius: 25px;}
+}*/
+
+@keyframes circleAnimationOut {
+    0%{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 40%; border-radius: 50%;}
+    90%{width: 700px; height: 700px; top: 0; border-radius: 50%; margin-left: calc(50% - 350px);}
+    100%{width: 100%; height: 100%; margin-left: 0; border-radius: 0; margin-left: 0; top: 0;}
+}
+
+@keyframes waves {
+    from{width: 50px;height: 50px; border-radius: 50%;}
+    to{width: 200px; height: 200px; border-radius: 50%; border: 6px solid white; margin-left: calc(50% - 105px); transform: translateY(-75px);}
+}
+/*@-webkit-keyframes  circleAnimationOut{
+    from{width: 50px; height: 50px; margin-left: calc(50% - 25px); top: 40%; border-radius: 25px;}
+    to{width: 100%; height: 100%; margin-left: 0; border-radius: 0; margin-left: 0; top: 0;}
+}*/
+
