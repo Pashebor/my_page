@@ -1,8 +1,9 @@
 function changeFlask(image1, image2, image3, id) {
+    'use strict';
     var idEl = id;
     var images = [{
-            url: image1, // ��������
-            timeout: 1000 // �������� ��� ��������
+            url: image1,
+            timeout: 1000
         }, {
             url: image2,
             timeout: 1000
@@ -30,6 +31,7 @@ function changeFlask(image1, image2, image3, id) {
 }
 
 $(window).on('load', function () {
+    'use strict';
     var container = $('.container');
     var circle = $('.circle');
     var flask = $('#flask');
@@ -67,11 +69,37 @@ $(window).on('load', function () {
 });
 
 $(document).ready( function() {
- var flask = $('#flask');
- var circle = $('.circle');
- var container = $('.container');
- var wave = $('.wave');
-   circle.click(function () {
+    'use strict';
+    var flask = $('#flask');
+    var circle = $('.circle');
+    var container = $('.container');
+    var wave = $('.wave');
+    var content = $('.content');
+    var backgroundImages = ['smile.jpg', 'thinking.jpg', 'surprise_blur.png'];
+    var i = 0;
+    content.click(function (event) {
+        event.stopPropagation();
+    });
+    function changeBackground() {
+       setInterval(function () {
+          content.fadeTo('slow', 0.4, function () {
+              $(this).css({
+                 'background': 'url(img/my_photoes/'+ backgroundImages[i++] +') no-repeat center',
+                 '-webkit-background-size': 'cover',
+                 '-moz-background-size': 'cover',
+                 '-o-background-size': 'cover',
+                 'background-size': 'cover'
+             });
+             $(this).fadeTo('slow', 1);
+          });
+          if (i === backgroundImages.length) {
+              i = 0;
+          }
+       }, 7000);
+    }
+
+   circle.click(function (event) {
+       event.preventDefault();
        flask.fadeOut('slow');
        setTimeout( function () {
        circle.css({
@@ -90,6 +118,8 @@ $(document).ready( function() {
        setTimeout( function () {
            container.fadeIn('slow').css('position', 'absolute');
            changeFlask('img/flaskLogo1.png', 'img/flaskLogo2.png', 'img/flaskLogo.png', '#flaskLogo');
+           changeBackground();
        }, 1500);
    });
+
 });

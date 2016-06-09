@@ -9,9 +9,10 @@
     font-style: normal;
 }
 @font-face {
-    font-family: Cronus;
-    src: url('../fonts/Cronus%20Round.otf');
+    font-family: CentarRegular;
+    src: url('../fonts/CentarRegular.otf');
 }
+
 @font-face {
     font-family: Matias;
     src: url('../fonts/Matias.otf');
@@ -23,7 +24,7 @@
 }
 
 body{
-    background-color: #2B2929;
+    background-color: #4e414a;
 }
 .container{
     display: flex;
@@ -40,42 +41,115 @@ body{
 }
 
 .header p{
-    margin-top: 5px;
+    margin: 15px 0px;
     font-family: Matias;
-    font-size: 15pt;
+    font-size: 20pt;
     letter-spacing: -1px;
     font-weight: 600;
 }
 
+.header:first-child span{
+    color: #d08646;
+}
 .header img{
-  padding-left: 10px;
+  padding-left: 20px;
   margin-top: 5px;
   width: 20px;
   height: 50px;
 }
-
-.home{
-    font-family: Qlassik;
-    font-size: 12pt;
+.header div:nth-child(3){
+    font-family: CentarRegular, sans-serif;
+    font-size: 10pt;
     color: #dbdbdb;
     margin-top: 10px;
-    padding-left: 10%;
+    margin-left: auto;
+    padding-right: 10px;
     text-align: center;
     letter-spacing: 0.5px;
 }
-.home:before{
+
+.header div:nth-child(3):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f015';
+    color: #d08646;
+}
+
+.header div:nth-child(3):hover:before{
+    color: #dbdbdb;
+}
+.header div:nth-child(4):hover:before{
+    color: #dbdbdb;
+}
+.header div:last-child:hover:before{
+    color: #dbdbdb;
+}
+.header div:nth-child(4), div:nth-child(5){
+    font-family: CentarRegular;
+    font-size: 10pt;
+    color: #dbdbdb;
+    margin-top: 10px;
+    padding-right: 10px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.header div:nth-child(4):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f05a';
+    color: #d08646;
+}
+
+.header div:nth-child(5):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f0e0';
+    color: #d08646;
 }
 
 .content{
     display: flex;
-    flex-direction: row;
-    background-color: #ebeaea;
-    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    background: url('../img/my_photoes/surprise_blur.png') no-repeat center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
+.content button{
+    position: absolute;
+    z-index: 2;
+    font-family: CentarRegular;
+    color: #dbdbdb;
+    font-size: 100%;
+    padding: 10px;
+    border: 2px solid #4e414a;
+    border-radius: 10px;
+    bottom: 140px;
+    width: 200px;
+    background-color: rgba(78, 65, 74, 0.4);
+    margin-left: calc(50% - 100px);
+    text-align: center;
+}
+
+.content div:before{
+    position: absolute;
+    z-index: 1;
+    bottom: 100px;
+    font-family: FontAwesome;
+    font-size: 50px;
+    content: '\f107';
+    color: #d08646;
+    margin-left: calc(50% - 25px);
+    cursor: pointer;
+    animation: arrowDownAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 800ms;
+
+}
 .footer{
     display: flex;
     position: fixed;
@@ -92,7 +166,7 @@ body{
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    background-color: white;
+    background-color: #ebeaea;
     margin-left: calc(50% - 350px);
 }
 #flask{
@@ -106,7 +180,7 @@ body{
     top: -1px;
     width: 48px;
     height: 48px;
-    border: 2px solid white;
+    border: 2px solid #ebeaea;
     border-radius: 50%;
     margin-left: calc(50% - 26px);
 }
@@ -114,6 +188,11 @@ body{
 /*.container{
     display: none;
 }*/
+@keyframes arrowDownAnimation {
+    from{transform: translate(0, 0);}
+    to{transform: translate(0, 10px);}
+}
+
 @keyframes circleAnimationIn {
     from{width: 700px; height: 700px; top: 0; border-radius: 50%;}
     to{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 40%; border-radius: 50%;}
