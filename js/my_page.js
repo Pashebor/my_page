@@ -33,10 +33,12 @@ function changeFlask(image1, image2, image3, id) {
 $(window).on('load', function () {
     'use strict';
     var container = $('.container');
+    container.hide();
     var circle = $('.circle');
     var flask = $('#flask');
-    var wave = $('.wave');
     flask.hide();
+    var wave = $('.wave');
+    wave.hide();
     circle.css({
         'animation' : 'circleAnimationIn',
         'animation-duration' : '1s',
@@ -47,11 +49,12 @@ $(window).on('load', function () {
         'border-radius' : '25px',
         'cursor' : 'pointer'
     });
-       setTimeout(function () {
+    setTimeout(function () {
           circle.css('margin-left', 'calc(50% - 25px)');
        }, 1000);
-       setTimeout(function () {
+    setTimeout(function () {
            flask.fadeIn('slow');
+           wave.show();
            circle.hover(function () {
               wave.css({
                   'animation' : 'waves',
@@ -64,23 +67,61 @@ $(window).on('load', function () {
            }
            );
        }, 1000);
-    container.hide();
     changeFlask('img/colba1.png', 'img/colba2.png', 'img/colba3.png', '#flask');
 });
 
 $(document).ready( function() {
     'use strict';
+    var home = $('#home'), contact = $('#contact'), info = $('#info'), portfolio = $('#portfolio');
+    var header = $('.header');
     var flask = $('#flask');
     var circle = $('.circle');
     var container = $('.container');
     var wave = $('.wave');
     var content = $('.content');
-    var backgroundImages = ['smile.jpg', 'thinking.jpg', 'surprise_blur.png'];
+    var backgroundImages = ['smile.jpg', 'think.jpg', 'surprise_blur.png'];
     var i = 0;
+    var dg_W = $(window).width();
+    var dg_H = $(window).height();
+
+    $('#wrap').css({'height':dg_H,'width':dg_W});
+    $('div.bgfade').hide();
+
     content.click(function (event) {
         event.stopPropagation();
     });
-    function changeBackground() {
+    header.click(function (event) {
+        event.stopPropagation();
+    });
+    home.click(function (event) {
+        event.preventDefault();
+        window.location.href = 'https://vk.com';
+    });
+
+    contact.click(function (event) {
+        event.stopPropagation();
+    });
+
+    info.click(function (event) {
+        event.stopPropagation();
+    });
+
+    function animateBackground() {
+        $("#wrap div.bgfade").first().appendTo('#wrap').fadeOut(1500);
+        $("#wrap div").first().css({
+            'background': 'url(img/my_photoes/'+ backgroundImages[i++] +') no-repeat center',
+            '-webkit-background-size': 'cover',
+            '-moz-background-size': 'cover',
+            '-o-background-size': 'cover',
+            'background-size': 'cover'
+        }).fadeIn(1500);
+        if (i === backgroundImages.length) {
+            i = 0;
+        }
+        setTimeout(animateBackground, 8000);
+    }
+
+    /*function changeBackground() {
        setInterval(function () {
           content.fadeTo('slow', 0.4, function () {
               $(this).css({
@@ -95,8 +136,8 @@ $(document).ready( function() {
           if (i === backgroundImages.length) {
               i = 0;
           }
-       }, 7000);
-    }
+       }, 10000);
+    }*/
 
    circle.click(function (event) {
        event.preventDefault();
@@ -118,8 +159,10 @@ $(document).ready( function() {
        setTimeout( function () {
            container.fadeIn('slow').css('position', 'absolute');
            changeFlask('img/flaskLogo1.png', 'img/flaskLogo2.png', 'img/flaskLogo.png', '#flaskLogo');
-           changeBackground();
+           animateBackground();
        }, 1500);
    });
 
 });
+
+$(window).resize(function(){window.location.href=window.location.href});
