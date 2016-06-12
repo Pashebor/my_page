@@ -73,7 +73,7 @@ $(window).on('load', function () {
 $(document).ready( function() {
     'use strict';
     var home = $('#home'), contact = $('#contact'), info = $('#info'), portfolio = $('#portfolio');
-    var header = $('.header');
+    var header = $('.header'), social = $('.social');
     var flask = $('#flask');
     var circle = $('.circle');
     var container = $('.container');
@@ -85,12 +85,15 @@ $(document).ready( function() {
     var dg_H = $(window).height();
 
     $('#wrap').css({'height':dg_H,'width':dg_W});
-    $('div.bgfade').hide();
+    $('div.backgroundFade').hide();
 
     content.click(function (event) {
         event.stopPropagation();
     });
     header.click(function (event) {
+        event.stopPropagation();
+    });
+    social.click(function (event) {
         event.stopPropagation();
     });
     home.click(function (event) {
@@ -107,7 +110,7 @@ $(document).ready( function() {
     });
 
     function animateBackground() {
-        $("#wrap div.bgfade").first().appendTo('#wrap').fadeOut(1500);
+        $("#wrap div.backgroundFade").first().appendTo('#wrap').fadeOut(1500);
         $("#wrap div").first().css({
             'background': 'url(img/my_photoes/'+ backgroundImages[i++] +') no-repeat center',
             '-webkit-background-size': 'cover',
@@ -165,4 +168,7 @@ $(document).ready( function() {
 
 });
 
-$(window).resize(function(){window.location.href=window.location.href});
+$(window).resize(function(){
+    'use strict';
+    window.location.href=window.location.href
+});
