@@ -1,27 +1,240 @@
+
 @font-face {
-    font-family: Cronus;
-    src: url('../fonts/Cronus%20Round.otf');
+    font-family: FontAwesome;
+    src: url('../fonts/fontawesome-webfont.eot?v=3.0.1');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+    url('../fonts/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+    url('../fonts/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+@font-face {
+    font-family: CentarRegular;
+    src: url('../fonts/CentarRegular.otf');
+}
+
 @font-face {
     font-family: Matias;
     src: url('../fonts/Matias.otf');
 }
+
+@font-face {
+    font-family: Qlassik;
+    src: url('../fonts/Qlassik.ttf');
+}
+
 body{
-    background-color: black;
+    background-color: #4e414a;
 }
 .container{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 .header{
     display: flex;
     flex-direction: row;
-    background-color: #8BAF55;
+    width: 100%;
+
 }
 
-.header h1{
+.header p{
+    margin: 15px 0px;
     font-family: Matias;
-    font-size: 30pt;
+    font-size: 20pt;
+    letter-spacing: -1px;
+    font-weight: 600;
+}
+
+.header:first-child span{
+    color: #d08646;
+}
+.header img{
+  padding-left: 20px;
+  margin-top: 5px;
+  width: 20px;
+  height: 50px;
+}
+.header ul,li{
+    list-style: none;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.header #menu li:first-child{
+    margin-top: 10px;
+}
+
+.header #menu li:nth-child(2), li:nth-child(3), li:last-child{
+    margin-top: 5px;
+}
+.header #menu li:nth-child(1):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f015';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.header #menu li:nth-child(2):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f05a';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.header #menu li:nth-child(3):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f0e0';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.header #menu li:nth-child(4):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f02d';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.header #menu li:hover:before{
+    color: #dbdbdb;
+}
+
+.social{
+    display: flex;
+    position: absolute;
+    z-index: 0;
+    flex-direction: row;
+    width: 100%;
+    bottom: 0;
+}
+
+.social #social-menu li:first-child:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f189';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.social #social-menu li:first-child:hover:before{
+    color: #4E729A;
+}
+
+.social #social-menu li:nth-child(2):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f232';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.social #social-menu li:nth-child(2):hover:before{
+    color: #43d854;
+}
+
+.social #social-menu li:nth-child(3):before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f113';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.social #social-menu li:nth-child(3):hover:before{
+    color: black;
+}
+
+.social #social-menu li:last-child:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f230';
+    color: #d08646;
+    cursor: pointer;
+}
+
+.social #social-menu li:last-child:hover:before{
+    color: #3b5998;
+}
+
+#wrap{
+    position: absolute;
+    z-index:-1;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background-color:#4e414a;
+}
+#wrap div.backgroundFade{
+    position:absolute;
+    display:none;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    /*background: url('../img/my_photoes/surprise_blur.png') no-repeat center;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /*background: url('../img/my_photoes/surprise_blur.png') no-repeat center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
+
+.content button{
+    position: absolute;
+    z-index: 2;
+    font-family: CentarRegular;
+    color: #dbdbdb;
+    font-size: 100%;
+    padding: 10px;
+    border: 2px solid #4e414a;
+    border-radius: 10px;
+    bottom: 140px;
+    width: 200px;
+    background-color: rgba(78, 65, 74, 0.8);
+    margin-left: calc(50% - 100px);
+    text-align: center;
+}
+
+.content #arrowDown:before{
+    position: absolute;
+    z-index: 1;
+    bottom: 100px;
+    font-family: FontAwesome;
+    font-size: 50px;
+    content: '\f107';
+    color: #d08646;
+    margin-left: calc(50% - 15px);
+    cursor: pointer;
+    animation: arrowDownAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 800ms;
+
+}
+.footer{
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    background-color: #4e414a;
+    width: 100%;
+    bottom: 0;
 }
 .circle{
     position: absolute;
@@ -31,7 +244,7 @@ body{
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    background-color: white;
+    background-color: #ebeaea;
     margin-left: calc(50% - 350px);
 }
 #flask{
@@ -41,20 +254,66 @@ body{
 
 .wave{
     position: absolute;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    border: 2px solid white;
+    z-index: -1;
+    top: 1px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     margin-left: calc(50% - 26px);
 }
+/*Thinking and saying*/
+#bubbles{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+}
 
+#first-bubble{
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    animation: firstBubbleAnim 5s infinite;
+}
+
+
+#second-bubble{
+    position: absolute;
+    top: 115px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 140px;
+    animation: secondBubbleAnim 1s infinite;
+}
+
+#third-bubble{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 180px;
+    top: 155px;
+}
 /*.container{
     display: none;
 }*/
+
+@keyframes arrowDownAnimation {
+    0%{transform: translate(0, 0);}
+    50%{transform: translate(0, 10px);}
+    100%{transform: translate(0, 0);}
+}
+
 @keyframes circleAnimationIn {
     from{width: 700px; height: 700px; top: 0; border-radius: 50%;}
-    to{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 40%; border-radius: 50%;}
+    to{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 45%; border-radius: 50%;}
 }
 /*@-webkit-keyframes  circleAnimationIn{
     from{width: 100%; height: 100%; margin-left: 0; top: 0; border-radius: 100%;}
@@ -62,15 +321,36 @@ body{
 }*/
 
 @keyframes circleAnimationOut {
-    0%{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 40%; border-radius: 50%;}
+    0%{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 45%; border-radius: 50%;}
     90%{width: 700px; height: 700px; top: 0; border-radius: 50%; margin-left: calc(50% - 350px);}
     100%{width: 100%; height: 100%; margin-left: 0; border-radius: 0; margin-left: 0; top: 0;}
 }
 
 @keyframes waves {
-    from{width: 50px;height: 50px; border-radius: 50%;}
-    to{width: 200px; height: 200px; border-radius: 50%; border: 6px solid white; margin-left: calc(50% - 105px); transform: translateY(-75px);}
+    from{width: 45px;height: 45px; border-radius: 50%; opacity: 1; border: 2px solid white;}
+    to{width: 200px; height: 200px; border-radius: 50%; border: 6px solid white; opacity: 0; transform: translate(-78px,-78px);}
 }
+
+/*Thinking bubbles animation*/
+@keyframes thirdBubbleAnim{
+    0%{width: 0px; height: 0px; margin-left: 190px; margin-top: 10px;}
+    100%{width: 20px; height: 20px; margin-left: 180px; margin-top: 0px;}
+}
+
+@keyframes secondBubbleAnim{
+    0%{width: 0px; height: 0px; margin-left: 160px; margin-top: 20px;}
+    100%{width: 40px; height: 40px; margin-left: 140px; margin-top: 0px;}
+}
+
+@keyframes firstBubbleAnim{
+    0%{width: 0px; height: 0px; margin-left: 100px; margin-top: 50px;}
+    100%{width: 200px; height: 100px; margin-left: 0px; margin-top: 0px;}
+}
+@keyframes textOpacity{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
 /*@-webkit-keyframes  circleAnimationOut{
     from{width: 50px; height: 50px; margin-left: calc(50% - 25px); top: 40%; border-radius: 25px;}
     to{width: 100%; height: 100%; margin-left: 0; border-radius: 0; margin-left: 0; top: 0;}
