@@ -395,6 +395,11 @@ body{
     100%{width: 0px; height: 0px; margin-left: 530px; margin-top: 50px;}
 }
 
+@keyframes firstBubbleDisappear3 {
+    0%{width: 200px; height: 100px; margin-left: -80px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 20px; margin-top: 50px;}
+}
+
 @keyframes  secondBubbleDisappear{
     0%{width: 40px; height: 40px; margin-left: 140px; margin-top: 0px;}
     100%{width: 0px; height: 0px; margin-left: 160px; margin-top: 20px;}
@@ -403,6 +408,12 @@ body{
 @keyframes  secondBubbleDisappear2 {
     0%{width: 40px; height: 40px; margin-left: 420px; margin-top: 0px;}
     100%{width: 0px; height: 0px; margin-left: 440px; margin-top: 20px;}
+}
+
+@keyframes  secondBubbleDisappear3 {
+    0%{width: 40px; height: 40px; margin-left: 70px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 80px; margin-top: 20px;}
+
 }
 
 @keyframes thirdBubbleDisappear {
@@ -414,6 +425,12 @@ body{
     0%{width: 20px; height: 20px; margin-left: 400px; margin-top: 0px;}
     100%{width: 0px; height: 0px; margin-left: 410px; margin-top: 10px;}
 }
+
+@keyframes thirdBubbleDisappear3 {
+    0%{width: 20px; height: 20px; margin-left: 130px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 140px; margin-top: 10px;}
+}
+
 /*@-webkit-keyframes  circleAnimationOut{
     from{width: 50px; height: 50px; margin-left: calc(50% - 25px); top: 40%; border-radius: 25px;}
     to{width: 100%; height: 100%; margin-left: 0; border-radius: 0; margin-left: 0; top: 0;}
