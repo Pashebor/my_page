@@ -109,6 +109,7 @@ body{
 .social{
     display: flex;
     position: absolute;
+    z-index: 0;
     flex-direction: row;
     width: 100%;
     bottom: 0;
@@ -165,6 +166,8 @@ body{
 #wrap{
     position: absolute;
     z-index:-1;
+    width: 100%;
+    height: 100%;
     top:0;
     left:0;
     background-color:#4e414a;
@@ -175,7 +178,7 @@ body{
     width:100%;
     height:100%;
     z-index:-1;
-    background: url('../img/my_photoes/surprise_blur.png') no-repeat center ;
+    /*background: url('../img/my_photoes/surprise_blur.png') no-repeat center;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -251,22 +254,57 @@ body{
 
 .wave{
     position: absolute;
-    z-index: 1;
-    top: -1px;
-    width: 48px;
-    height: 48px;
-    border: 2px solid #ebeaea;
+    z-index: -1;
+    top: 1px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     margin-left: calc(50% - 26px);
 }
+/*Thinking and saying*/
+#bubbles{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+}
 
+#first-bubble{
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    border: 2px solid black;
+}
+
+
+#second-bubble{
+    position: absolute;
+    top: 115px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 140px;
+    border: 2px solid black;
+}
+
+#third-bubble{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-left: 180px;
+    top: 155px;
+}
 /*.container{
     display: none;
 }*/
-/*Thinking bubbles animation*/
-@keyframes thinkBubblesAnimation {
-
-}
 
 @keyframes arrowDownAnimation {
     0%{transform: translate(0, 0);}
@@ -276,7 +314,7 @@ body{
 
 @keyframes circleAnimationIn {
     from{width: 700px; height: 700px; top: 0; border-radius: 50%;}
-    to{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 40%; border-radius: 50%;}
+    to{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 45%; border-radius: 50%;}
 }
 /*@-webkit-keyframes  circleAnimationIn{
     from{width: 100%; height: 100%; margin-left: 0; top: 0; border-radius: 100%;}
@@ -284,14 +322,97 @@ body{
 }*/
 
 @keyframes circleAnimationOut {
-    0%{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 40%; border-radius: 50%;}
+    0%{width: 50px; height: 50px; margin-left: calc(50% - 25px);  top: 45%; border-radius: 50%;}
     90%{width: 700px; height: 700px; top: 0; border-radius: 50%; margin-left: calc(50% - 350px);}
     100%{width: 100%; height: 100%; margin-left: 0; border-radius: 0; margin-left: 0; top: 0;}
 }
 
 @keyframes waves {
-    from{width: 48px;height: 48px; border-radius: 50%; opacity: 1;}
+    from{width: 45px;height: 45px; border-radius: 50%; opacity: 1; border: 2px solid white;}
     to{width: 200px; height: 200px; border-radius: 50%; border: 6px solid white; opacity: 0; transform: translate(-78px,-78px);}
+}
+
+/*Thinking bubbles animation*/
+
+@keyframes thirdBubbleAnim{
+    0%{width: 0px; height: 0px; margin-left: 190px; margin-top: 10px;}
+    100%{width: 20px; height: 20px; margin-left: 180px; margin-top: 0px;}
+}
+
+@keyframes thirdBubbleAnim2{
+    0%{width: 0px; height: 0px; margin-left: 410px; margin-top: 10px;}
+    100%{width: 20px; height: 20px; margin-left: 400px; margin-top: 0px;}
+}
+
+@keyframes thirdBubbleAnim3{
+    0%{width: 0px; height: 0px; margin-left: 140px; margin-top: 10px;}
+    100%{width: 20px; height: 20px; margin-left: 130px; margin-top: 0px;}
+}
+
+@keyframes secondBubbleAnim{
+    0%{width: 0px; height: 0px; margin-left: 160px; margin-top: 20px;}
+    100%{width: 40px; height: 40px; margin-left: 140px; margin-top: 0px;}
+}
+
+@keyframes secondBubbleAnim2 {
+    0%{width: 0px; height: 0px; margin-left: 440px; margin-top: 20px;}
+    100%{width: 40px; height: 40px; margin-left: 420px; margin-top: 0px;}
+}
+
+@keyframes secondBubbleAnim3 {
+    0%{width: 0px; height: 0px; margin-left: 80px; margin-top: 20px;}
+    100%{width: 40px; height: 40px; margin-left: 70px; margin-top: 0px;}
+}
+
+@keyframes firstBubbleAnim{
+    0%{width: 0px; height: 0px; margin-left: 100px; margin-top: 50px;}
+    100%{width: 200px; height: 100px; margin-left: 0px; margin-top: 0px;}
+}
+
+@keyframes firstBubbleAnim2{
+    0%{width: 0px; height: 0px; margin-left: 530px; margin-top: 50px;}
+    100%{width: 200px; height: 100px; margin-left: 430px; margin-top: 0px;}
+}
+
+@keyframes firstBubbleAnim3{
+    0%{width: 0px; height: 0px; margin-left: 20px; margin-top: 50px;}
+    100%{width: 200px; height: 100px; margin-left: -80px; margin-top: 0px;}
+}
+
+@keyframes textOpacity{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+/*Thinking bubbles animation disappear*/
+@keyframes firstBubbleDisappear {
+    0%{width: 200px; height: 100px; margin-left: 0px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 100px; margin-top: 50px;}
+}
+
+@keyframes firstBubbleDisappear2 {
+    0%{width: 200px; height: 100px; margin-left: 430px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 530px; margin-top: 50px;}
+}
+
+@keyframes  secondBubbleDisappear{
+    0%{width: 40px; height: 40px; margin-left: 140px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 160px; margin-top: 20px;}
+}
+
+@keyframes  secondBubbleDisappear2 {
+    0%{width: 40px; height: 40px; margin-left: 420px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 440px; margin-top: 20px;}
+}
+
+@keyframes thirdBubbleDisappear {
+    0%{width: 20px; height: 20px; margin-left: 180px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 190px; margin-top: 10px;}
+}
+
+@keyframes thirdBubbleDisappear2 {
+    0%{width: 20px; height: 20px; margin-left: 400px; margin-top: 0px;}
+    100%{width: 0px; height: 0px; margin-left: 410px; margin-top: 10px;}
 }
 /*@-webkit-keyframes  circleAnimationOut{
     from{width: 50px; height: 50px; margin-left: calc(50% - 25px); top: 40%; border-radius: 25px;}
