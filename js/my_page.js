@@ -80,9 +80,12 @@ $(document).ready( function() {
     var container = $('.container');
     var wave = $('.wave');
     var content = $('.content');
-    var backgroundImages = ['smile.jpg', 'think.jpg', 'surprise_blur.png'];
+    var backgroundImages = ['think.jpg', 'surprise.jpg', 'smile.jpg'];
     var i = 0;
     var windowWidth = $(window).width();
+    var thirdBubble = $('#third-bubble');
+    var secondBubble = $('#second-bubble');
+    var firstBubble = $('#first-bubble');
 
     $('div.backgroundFade').hide();
 
@@ -111,30 +114,106 @@ $(document).ready( function() {
     info.click(function (event) {
         event.stopPropagation();
     });
+    function thinkingAnimations() {
 
-    function anim(){
-        'use strict';
-        var thirdBubble = document.getElementById('third-bubble');
-        var secondBubble = document.getElementById('second-bubble');
-        var firstBubble = document.getElementById('first-bubble');
-        /*var hi = document.getElementById('hi');*/
+        var animateThoughtsThinking = function(){
+            'use strict';
+            secondBubble.css('display', 'none');
+            firstBubble.css('display', 'none');
+            thirdBubble.css('display', 'none');
 
-        secondBubble.style.display = 'none';
-        firstBubble.style.display = 'none';
-
-        thirdBubble.style.cssText = 'animation: thirdBubbleAnim 1s 1;';
-        setTimeout(function(){
-            secondBubble.style.cssText = 'animation: secondBubbleAnim 1s 1; ';
             setTimeout(function () {
-                firstBubble.style.cssText = 'animation: firstBubbleAnim 1s 1; ';
+                thirdBubble.css({
+                    'display': 'block',
+                    'animation': 'thirdBubbleAnim 0.6s 1'
+                });
+                setTimeout(function(){
+                    secondBubble.css({
+                        'display': 'block',
+                        'animation': 'secondBubbleAnim 0.6s 1'
+                    });
+                    setTimeout(function () {
+                        firstBubble.css({
+                            'display': 'block',
+                            'animation': 'firstBubbleAnim 0.6s 1'
+                        });
 
-                setTimeout(function() {
-                    firstBubble.innerHTML = '<p id="hi">Привет!</p>';
-                    /*hi.style.cssText = 'animation: textOpacity 1s 1';*/
-                }, 1000);
-            }, 1200);
-        }, 1000);
+                        setTimeout(function() {
+                            firstBubble.html('<p id="hi">Думаем...</p>');
+                        }, 600);
+                    }, 600);
+                }, 600);
+            }, 1000);
+        };
+
+        var animateThoughtsSurprise = function() {
+            'use strict';
+            setTimeout( function () {
+                thirdBubble.css({
+                    'display': 'block',
+                    'animation': 'thirdBubbleAnim 0.6s 1'
+                });
+                setTimeout(function () {
+                    secondBubble.css({
+                        'position': 'absolute',
+                        'width': '40px',
+                        'height': '40px',
+                        'background-color': 'white',
+                        'border-radius': '50%',
+                        'margin-left': '120px',
+                        'top': '175px',
+                        'animation': 'secondBubbleAnim2 0.6s 1',
+                        'display' : 'block'
+                    });
+                    setTimeout(function () {
+                        firstBubble.css({
+                            'position': 'absolute',
+                            'top': '210px',
+                            'width': '200px',
+                            'height': '100px',
+                            'background-color': 'white',
+                            'border-radius': '50%',
+                            'text-align': 'center',
+                            'line-height': '50px',
+                            'display': 'block',
+                            'animation': 'firstBubbleAnim2 0.6s 1',
+                            'margin-left': '-70px'
+                        });
+                        setTimeout(function() {
+                            firstBubble.html('<p id="hi">Удивляемся...</p>');
+                        }, 600);
+                    }, 600);
+                }, 600);
+            }, 9000);
+        };
+
+        var animateDisappearThoughts = function(){
+            setTimeout(function(){
+                firstBubble.html('').fadeOut('fast');
+                firstBubble.css({'animation' : 'firstBubbleDisappear 0.6s 1'});
+                setTimeout(function () {
+                    firstBubble.css('display', 'none');
+                    secondBubble.css('animation', 'secondBubbleDisappear 0.6s 1');
+                    setTimeout(function () {
+                        secondBubble.css('display', 'none');
+                        thirdBubble.css('animation', 'thirdBubbleDisappear 0.6s 1');
+                        setTimeout(function () {
+                            thirdBubble.css('display', 'none');
+                        }, 600);
+                    } ,600);
+                } ,600);
+            }, 5000);
+        };
+
+        return{
+           anim1: animateThoughtsThinking(),
+           anim2: animateDisappearThoughts(),
+           anim3: animateThoughtsSurprise()
+        };
     }
+
+
+
 
     function animateBackground() {
 
@@ -159,26 +238,9 @@ $(document).ready( function() {
         if (i === backgroundImages.length) {
             i = 0;
         }
+
         setTimeout(animateBackground, 8000);
     }
-
-    /*function changeBackground() {
-       setInterval(function () {
-          content.fadeTo('slow', 0.4, function () {
-              $(this).css({
-                 'background': 'url(img/my_photoes/'+ backgroundImages[i++] +') no-repeat center',
-                 '-webkit-background-size': 'cover',
-                 '-moz-background-size': 'cover',
-                 '-o-background-size': 'cover',
-                 'background-size': 'cover'
-             });
-             $(this).fadeTo('slow', 1);
-          });
-          if (i === backgroundImages.length) {
-              i = 0;
-          }
-       }, 10000);
-    }*/
 
    circle.click(function (event) {
        event.preventDefault();
@@ -201,7 +263,21 @@ $(document).ready( function() {
            container.fadeIn('slow').css('position', 'absolute');
            changeFlask('img/flaskLogo1.png', 'img/flaskLogo2.png', 'img/flaskLogo.png', '#flaskLogo');
            animateBackground();
-           anim();
+           for(var j = 0; j < 2; j++){
+
+               switch (j){
+                   case 0:
+                       thinkingAnimations().anim1;
+                       continue;
+                   case 1:
+                       thinkingAnimations().anim2;
+                       continue;
+                   case 2:
+                       thinkingAnimations().anim3;
+                       continue;
+               }
+           }
+
        }, 1500);
    });
 
@@ -209,5 +285,5 @@ $(document).ready( function() {
 
 $(window).resize(function(){
     'use strict';
-    window.location.href=window.location.href
+    window.location.href=window.location.href;
 });
