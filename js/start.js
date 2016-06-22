@@ -313,18 +313,20 @@ $(document).ready( function() {
     });
     home.click(function (event) {
         event.preventDefault();
+        window.location.href = '#home';
     });
 
     contact.click(function (event) {
         event.stopPropagation();
-        window.location.href = '#';
+        window.location.href = '#contact';
     });
     portfolio.click(function (event) {
         event.stopPropagation();
-        window.location.href = '#';
+        window.location.href = '#portfolio';
     });
     info.click(function (event) {
         event.stopPropagation();
+        window.location.href = '#about_us'
     });
 
 
