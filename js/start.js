@@ -296,7 +296,6 @@ $(document).ready( function() {
     var backgroundImages = ['think.jpg', 'surprise.jpg', 'smile.jpg'];
     var i = 0;
     var windowWidth = $(window).width();
-
     $('div.backgroundFade').hide();
 
     bubbles.click(function (event) {
@@ -314,7 +313,6 @@ $(document).ready( function() {
     });
     home.click(function (event) {
         event.preventDefault();
-        window.location.href = 'https://vk.com';
     });
 
     contact.click(function (event) {
