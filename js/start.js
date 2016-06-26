@@ -286,7 +286,7 @@ $(window).on('load', function () {
 
 $(document).ready( function() {
     'use strict';
-    var home = $('#home'), contact = $('#contact'), info = $('#info'), portfolio = $('#portfolio');
+    var home = $('#home'), contact = $('#contact'), portfolio = $('#portfolio');
     var header = $('.header'), social = $('.social'), bubbles = $('#bubbles');
     var flask = $('#flask');
     var circle = $('.circle');
@@ -324,12 +324,6 @@ $(document).ready( function() {
         event.stopPropagation();
         window.location.href = '#portfolio';
     });
-    info.click(function (event) {
-        event.stopPropagation();
-        window.location.href = '#about_us'
-    });
-
-
 
 
     function animateBackground() {
@@ -395,5 +389,5 @@ $(document).ready( function() {
 
 $(window).resize(function(){
     'use strict';
-    window.location.href=window.location.href;
+    window.location.reload();
 });
