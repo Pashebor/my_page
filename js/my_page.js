@@ -143,7 +143,7 @@ $(document).ready( function() {
                         }, 600);
                     }, 600);
                 }, 600);
-            }, 1000);
+            }, 1500);
         };
 
         var animateThoughtsSurprise = function() {
@@ -151,7 +151,8 @@ $(document).ready( function() {
             setTimeout( function () {
                 thirdBubble.css({
                     'display': 'block',
-                    'animation': 'thirdBubbleAnim 0.6s 1'
+                    'animation': 'thirdBubbleAnim2 0.6s 1',
+                    'margin-left': '400px'
                 });
                 setTimeout(function () {
                     secondBubble.css({
@@ -160,15 +161,15 @@ $(document).ready( function() {
                         'height': '40px',
                         'background-color': 'white',
                         'border-radius': '50%',
-                        'margin-left': '120px',
-                        'top': '175px',
+                        'margin-left': '420px',
+                        'top': '115px',
                         'animation': 'secondBubbleAnim2 0.6s 1',
                         'display' : 'block'
                     });
                     setTimeout(function () {
                         firstBubble.css({
                             'position': 'absolute',
-                            'top': '210px',
+                            'top': '10px',
                             'width': '200px',
                             'height': '100px',
                             'background-color': 'white',
@@ -177,7 +178,7 @@ $(document).ready( function() {
                             'line-height': '50px',
                             'display': 'block',
                             'animation': 'firstBubbleAnim2 0.6s 1',
-                            'margin-left': '-70px'
+                            'margin-left': '430px'
                         });
                         setTimeout(function() {
                             firstBubble.html('<p id="hi">Удивляемся...</p>');
@@ -186,7 +187,50 @@ $(document).ready( function() {
                 }, 600);
             }, 9000);
         };
-
+        
+        var animateThoughtsPleased = function () {
+            'use strict';
+            setTimeout( function () {
+                thirdBubble.css({
+                    'display': 'block',
+                    'animation': 'thirdBubbleAnim3 0.6s 1',
+                    'margin-left': '130px',
+                    'top': '155px'
+                });
+                setTimeout(function () {
+                    secondBubble.css({
+                        'position': 'absolute',
+                        'width': '40px',
+                        'height': '40px',
+                        'background-color': 'white',
+                        'border-radius': '50%',
+                        'top': '160px',
+                        'margin-left': '70px',
+                        'animation': 'secondBubbleAnim3 0.6s 1',
+                        'display' : 'block'
+                    });
+                    setTimeout(function () {
+                        firstBubble.css({
+                            'position': 'absolute',
+                            'top': '210px',
+                            'width': '200px',
+                            'height': '100px',
+                            'margin-left': '-80px',
+                            'background-color': 'white',
+                            'border-radius': '50%',
+                            'text-align': 'center',
+                            'line-height': '50px',
+                            'display': 'block',
+                            'animation': 'firstBubbleAnim3 0.6s 1'
+                        });
+                        setTimeout(function() {
+                            firstBubble.html('<p id="hi">Довольны работой...</p>');
+                        }, 600);
+                    }, 600);
+                }, 600);
+            }, 17000);
+        };
+        
         var animateDisappearThoughts = function(){
             setTimeout(function(){
                 firstBubble.html('').fadeOut('fast');
@@ -205,10 +249,30 @@ $(document).ready( function() {
             }, 5000);
         };
 
+        var animateDisappearThoughts2 = function(){
+            setTimeout(function(){
+                firstBubble.html('').fadeOut('fast');
+                firstBubble.css({'animation' : 'firstBubbleDisappear2 0.6s 1'});
+                setTimeout(function () {
+                    firstBubble.css('display', 'none');
+                    secondBubble.css('animation', 'secondBubbleDisappear2 0.6s 1');
+                    setTimeout(function () {
+                        secondBubble.css('display', 'none');
+                        thirdBubble.css('animation', 'thirdBubbleDisappear2 0.6s 1');
+                        setTimeout(function () {
+                            thirdBubble.css('display', 'none');
+                        }, 600);
+                    } ,600);
+                } ,600);
+            }, 15000);
+        };
+
         return{
            anim1: animateThoughtsThinking(),
            anim2: animateDisappearThoughts(),
-           anim3: animateThoughtsSurprise()
+           anim3: animateThoughtsSurprise(),
+           anim4: animateDisappearThoughts2(),
+           anim5: animateThoughtsPleased()
         };
     }
 
@@ -263,21 +327,31 @@ $(document).ready( function() {
            container.fadeIn('slow').css('position', 'absolute');
            changeFlask('img/flaskLogo1.png', 'img/flaskLogo2.png', 'img/flaskLogo.png', '#flaskLogo');
            animateBackground();
-           for(var j = 0; j < 2; j++){
+           if (windowWidth >= 1000) {
+           
+           for (var j = 0; j < 4; j++) {
 
-               switch (j){
+               switch (j) {
                    case 0:
                        thinkingAnimations().anim1;
-                       continue;
+                       break;
                    case 1:
                        thinkingAnimations().anim2;
-                       continue;
+                       break;
                    case 2:
                        thinkingAnimations().anim3;
-                       continue;
+                       break;
+                   case 3:
+                       thinkingAnimations().anim4;
+                       break;
+                   case 4:
+                       thinkingAnimations().anim5;
+                       break;
                }
            }
-
+       } else {
+               $('#bubbles').hide();
+           }
        }, 1500);
    });
 
