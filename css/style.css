@@ -245,7 +245,7 @@ body{
     display: flex;
     position: fixed;
     flex-direction: row;
-    background-color: #4e414a;
+    background-color: none;
     width: 100%;
     bottom: 0;
 }
@@ -458,6 +458,7 @@ body{
     z-index:-1;
     width: 100%;
     height: 50%;
+    top: 20%;
     /*margin-left: calc(50% - 400px);*/
 }
 
@@ -467,6 +468,7 @@ body{
     animation: aboutUsAnimation 1s 1;
     margin-top: 0;
 }
+
 
 #about-us p:nth-child(2){
   font-family: Bebas;
@@ -479,12 +481,14 @@ body{
 }
 
 #about-us p:last-child{
-    font-family: Bebas;
+    font-family: Railway    ;
     text-align: center;
     color: #4e414a;
     font-size: 14pt;
     margin-top: 0;
     font-weight: 600;
+    width: 80%;
+    margin-left: calc(50% - 40%);
 }
 
 @keyframes aboutUsAnimation {
@@ -498,55 +502,238 @@ body{
 }
 
 #photoRow{
-    margin-top: 20px;
+    margin-top: 160px;
     display: flex;
     flex-direction: row;
-    position: absolute;
-    z-index:2;
-    width: 80%;
+    width: 90%;
     height: 50%;
-    left: 10%;
-    right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     align-items: center;
     justify-content: center;
 }
 
-#photoRow div{
-    font-family: CentarRegular;
+#photoRow .dashed{
+    display: flex;
+    flex-direction: row;
+    font-family: Railway;
     color: inherit;
     text-align: center;
     font-size: 20pt;
     font-weight: bold;
-    border: 2px dashed black;
     border-radius: 10px;
     width: 35%;
     margin-left: 10px;
 
 }
 
-#photoRow div:first-child{
+#photoRow #alex {
+    display: block;
+    width: 40%;
+}
+
+
+#photoRow #pavel{
+    display: block;
+    width: 40%;
+}
+
+
+#pavel p:nth-child(3), #alex p:nth-child(3){
+    margin-top: -15px;
+}
+
+#photoRow .dashed{
+    padding: 10px;
+}
+
+#photoRow .desc{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: auto;
+}
+
+.desc p:first-child{
+    position: relative;
+    margin-top: 10px;
+    text-align: center;
+    height: 50px;
+    padding: 10px 5px 10px 5px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    animation: floatingAnimation 2s infinite;
+}
+.desc p:first-child:before{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    top: 30%;
+    left: -25px;
+    border: 15px solid transparent;
+    border-right-color:  white;
+}
+.desc p:nth-child(3){
+    color: #d08646 !important;
+    cursor: pointer;
+}
+
+.desc p:last-child{
+    animation: antiFloatingAnimation 2s infinite;
+}
+
+#photoRow .dashed:nth-child(1){
     animation: appsAnimation 1s 1;
 }
 
-#photoRow div:last-child{
-  animation: photoAnimation 1s 1;
+#photoRow .dashed:nth-child(2){
+    animation: photoAnimation 1s 1;
 }
 
-#photoRow div:first-child:hover{
-    border: 2px dashed deeppink;
+#photoRow #pavel img{
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: black url("../img/my_photoes/paxa.jpg") no-repeat center;
+background-size: cover;
 }
 
-#photoRow div:last-child:hover{
-    border: 2px dashed aqua;
+#photoRow #alex img{
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: black url("../img/my_photoes/lexa.jpg") no-repeat center;
+background-size: cover;
 }
 
-@keyframes appsAnimation {
-    0%{opacity: 0; margin-left: -300px;}
-    100%{opacity: 1; margin-left: 20px;}
+#photoRow div p{
+font-family: Railway;
+font-size: 12pt;
+color: #4e414a;
+font-weight: 800;
 }
 
-@keyframes photoAnimation {
-    0%{opacity: 0; margin-left: 800px;}
-    100%{opacity: 1; margin-left: 20px;}
+@keyframes floatingAnimation {
+    0%{margin-top: 0;}
+    50%{margin-top: 10px;}
+    100%{margin-top: 0;}
 }
+
+@keyframes antiFloatingAnimation {
+    0%{margin-top: 0;}
+    50%{margin-top: -10px;}
+    100%{margin-top: 0;}
+}
+
+@keyframes appsAnimation { 0%{opacity: 0; margin-left: -300px;} 100%{opacity: 1; margin-left: 20px;} }
+
+@keyframes photoAnimation { 0%{opacity: 0; margin-left: 800px;} 100%{opacity: 1; margin-left: 20px;} }
+
+@keyframes descAnimationIn { from{width: 70%;} to{width: 100%;} }
+
+@keyframes descAnimationOut { from{width: 100%;} to{width: 70%;} }
+
+/*Nav sandwich icon*/
+
+.c-hamburger {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    padding: 0;
+    width: 96px;
+    height: 96px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.c-hamburger:focus {
+    outline: none;
+}
+
+.c-hamburger span {
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: white;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: #fff;
+    content: "";
+}
+
+.c-hamburger span::before {
+    top: -20px;
+}
+
+.c-hamburger span::after {
+    bottom: -20px;
+}
+
+.c-hamburger--htx {
+    background-color: #ff3264;
+}
+
+.c-hamburger--htx span {
+    transition: background 0s 0.3s;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before {
+    transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+    transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htx.is-active {
+    background-color: #cb0032;
+}
+
+.c-hamburger--htx.is-active span {
+    background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+    transition-delay: 0s, 0.3s;
+}
+
 

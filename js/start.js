@@ -1,4 +1,25 @@
+/*Hamburger function*/
+function hamToggle() {
+    'use strict';
+    var menu = $('#menu'), social = $('.social');
+    var toggles = document.querySelectorAll(".c-hamburger");
+    for (var i = toggles.length - 1; i >= 0; i--) {
+        var toggle = toggles[i];
+        toggleHandler(toggle);
+    }
 
+    function toggleHandler(toggle) {
+        toggle.addEventListener( "click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            (menu.hide() != true) ? menu.show() : menu.hide();
+            (social.hide() != true) ? social.show() : social.hide() ;
+            (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+        });
+    }
+
+}
 /*Bubbles animations*/
 function thinkingAnimations() {
     'use strict';
@@ -286,13 +307,13 @@ $(window).on('load', function () {
 
 $(document).ready( function() {
     'use strict';
-    var home = $('#home'), contact = $('#contact'), portfolio = $('#portfolio');
+    var home = $('#home'), contact = $('#contact'), portfolio = $('#portfolio'), menu = $('#menu');
     var header = $('.header'), social = $('.social'), bubbles = $('#bubbles');
     var flask = $('#flask');
     var circle = $('.circle');
     var container = $('.container');
     var wave = $('.wave');
-    var content = $('.content');
+    var content = $('.content'), footer = $('.footer');
     var backgroundImages = ['think.jpg', 'surprise.jpg', 'smile.jpg'];
     var i = 0;
     var windowWidth = $(window).width();
@@ -382,6 +403,14 @@ $(document).ready( function() {
            } else {
                $('#bubbles').hide();
            }
+           if (windowWidth < 800) {
+               menu.hide();
+               social.hide();
+               footer.append('<button class="c-hamburger c-hamburger--htx"> <span>toggle menu</span> </button>');
+               hamToggle();
+
+           }
+
        }, 1500);
    });
 
