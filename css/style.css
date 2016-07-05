@@ -469,6 +469,7 @@ body{
     margin-top: 0;
 }
 
+
 #about-us p:nth-child(2){
   font-family: Bebas;
   text-align: center;
@@ -501,7 +502,7 @@ body{
 }
 
 #photoRow{
-    margin-top: 90px;
+    margin-top: 120px;
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -514,7 +515,7 @@ body{
     justify-content: center;
 }
 
-#photoRow div{
+#photoRow .dashed{
     display: flex;
     flex-direction: row;
     font-family: Railway;
@@ -565,7 +566,7 @@ body{
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-    animation: flaotingAnimation 2s infinite;
+    animation: floatingAnimation 2s infinite;
 }
 .desc p:first-child:before{
     content: '';
@@ -580,6 +581,7 @@ body{
 }
 .desc p:nth-child(3){
     color: #d08646 !important;
+    cursor: pointer;
 }
 
 .desc p:last-child{
@@ -617,7 +619,7 @@ color: #4e414a;
 font-weight: 800;
 }
 
-@keyframes flaotingAnimation {
+@keyframes floatingAnimation {
     0%{margin-top: 0;}
     50%{margin-top: 10px;}
     100%{margin-top: 0;}
@@ -629,13 +631,10 @@ font-weight: 800;
     100%{margin-top: 0;}
 }
 
-@keyframes appsAnimation {
-    0%{opacity: 0; margin-left: -300px;}
-    100%{opacity: 1; margin-left: 20px;}
-}
+@keyframes appsAnimation { 0%{opacity: 0; margin-left: -300px;} 100%{opacity: 1; margin-left: 20px;} }
 
-@keyframes photoAnimation {
-    0%{opacity: 0; margin-left: 800px;}
-    100%{opacity: 1; margin-left: 20px;}
-}
+@keyframes photoAnimation { 0%{opacity: 0; margin-left: 800px;} 100%{opacity: 1; margin-left: 20px;} }
 
+@keyframes descAnimationIn { from{width: 70%;} to{width: 100%;} }
+
+@keyframes descAnimationOut { from{width: 100%;} to{width: 70%;} }
