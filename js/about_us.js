@@ -13,7 +13,7 @@ $(document).ready(function () {
             content.append('<div id="photoRow"><div class="dashed"><div id="pavel"><img alt=""><p>Павел Демьянов</p><p>Programming</p></div><div class="desc"><p>Мы разрабатываем web-приложения.</p><br><p>Кликни, и произойдет чудо.</p></div></div>' +
                 '<div class="dashed"><div id="alex"><img alt=""><p>Алексей Игнатов</p><p>Design & photo</p></div><div class="desc"><p>Мы занимаемся обработкой фото и графики.</p><br><p>Наведи камеру и снимай.</p></div></div></div>');
 
-            var pavelDesc = $('#photoRow .dashed:first-child .desc'), alexName = $('#photoRow .dashed:last-child #alex p'), alexImg = $('#photoRow .dashed:last-child #alex img'),
+            var alexName = $('#photoRow .dashed:last-child #alex p'), alexImg = $('#photoRow .dashed:last-child #alex img'),
                 alexPhotoShootSign = $('#photoRow .dashed:last-child .desc p:nth-child(3)'), alexDesc = $('#photoRow .dashed:last-child .desc p:nth-child(1)'),
                 alexIdBlock = $('#photoRow .dashed:last-child #alex'), alexDescBlock = $('#photoRow .dashed:last-child .desc'), alexBlock = $('#photoRow .dashed:last-child'),
                 pavelBlock = $('#photoRow .dashed:first-child'), pavelIdBlock = $('#photoRow .dashed:first-child #pavel'),
@@ -160,13 +160,7 @@ $(document).ready(function () {
           });
         }
     });
-
-    /*speechCloudPavel.hover(function(){
-        speechCloudAlex.hide();
-    }, function(){
-        speechCloudAlex.show();
-    });*/
-
+    
     btnHome.click( function () {
         clickCount = 0;
 

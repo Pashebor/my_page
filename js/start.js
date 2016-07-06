@@ -1,21 +1,81 @@
 /*Hamburger function*/
-function hamToggle() {
+function navHamToggle() {
     'use strict';
-    var menu = $('#menu'), social = $('.social');
+    var menu = $('.nav-list'), social = $('.social');
     var toggles = document.querySelectorAll(".c-hamburger");
     for (var i = toggles.length - 1; i >= 0; i--) {
         var toggle = toggles[i];
         toggleHandler(toggle);
     }
 
+    /*For width of screen less then 1000px and mre than 500px*/
+    function forTablet() {
+      if (window.innerWidth < 900 && window.innerWidth > 500) {
+
+          menu.css({'right': '5%'});
+
+          if (toggle.classList.contains('is-active') === true) {
+
+            $('.social li').css('display', 'inline');
+            menu.css({'margin-top': '50%', 'opacity': '0'});
+            social.css({'margin-left': '70%', 'opacity': '0'});
+
+            menu.show().animate({
+                marginTop: '32%',
+                opacity: '1'
+            }, 400);
+
+            social.css('width', '35%').show().animate({
+                marginLeft: '55%',
+                opacity: '1'
+            }, 400);
+
+        } else {
+            menu.animate({marginTop: '50%', opacity: '0'}, 400).hide(450);
+            social.animate({marginLeft: '70%', opacity: '0'}, 400).hide(450);
+        }
+      }
+
+    }
+
+    /*For width of screen less then 500px and more than 370px*/
+
+    function forMobileLarge() {
+        if (window.innerWidth < 500 && window.innerWidth > 370) {
+
+            menu.css({'right': '12%'});
+
+            if (toggle.classList.contains('is-active') === true) {
+
+                $('.social li').css('display', 'inline');
+                menu.css({'margin-top': '80%', 'opacity': '0'});
+                social.css({'margin-left': '60%', 'opacity': '0'});
+
+                menu.show().animate({
+                    marginTop: '60%',
+                    opacity: '1'
+                }, 400);
+
+                social.css('width', '60%').show().animate({
+                    marginLeft: '20%',
+                    opacity: '1'
+                }, 400);
+
+            } else {
+                menu.animate({marginTop: '80%', opacity: '0'}, 400).hide(450);
+                social.animate({marginLeft: '60%', opacity: '0'}, 400).hide(450);
+            }
+        }
+
+    }
+
     function toggleHandler(toggle) {
         toggle.addEventListener( "click", function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            (menu.hide() != true) ? menu.show() : menu.hide();
-            (social.hide() != true) ? social.show() : social.hide() ;
             (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+            forTablet();
+            forMobileLarge();
         });
     }
 
@@ -283,6 +343,7 @@ $(window).on('load', function () {
         'border-radius' : '25px',
         'cursor' : 'pointer'
     });
+
     setTimeout(function () {
           circle.css('margin-left', 'calc(50% - 25px)');
        }, 1000);
@@ -307,7 +368,7 @@ $(window).on('load', function () {
 
 $(document).ready( function() {
     'use strict';
-    var home = $('#home'), contact = $('#contact'), portfolio = $('#portfolio'), menu = $('#menu');
+    var home = $('#home'), contact = $('#contact'), portfolio = $('#portfolio'), menu = $('.nav-list');
     var header = $('.header'), social = $('.social'), bubbles = $('#bubbles');
     var flask = $('#flask');
     var circle = $('.circle');
@@ -319,6 +380,9 @@ $(document).ready( function() {
     var windowWidth = $(window).width();
     $('div.backgroundFade').hide();
 
+    menu.on('click', function (event) {
+       event.stopPropagation();
+    });
     bubbles.click(function (event) {
        event.stopPropagation();
     });
@@ -391,6 +455,13 @@ $(document).ready( function() {
        });
        wave.hide();
        }, 500);
+       setTimeout(function () {
+
+           if(windowWidth < 1000){
+               circle.css({'overflow-y': 'scroll'});
+           }
+
+       }, 2000);
        setTimeout( function () {
            container.fadeIn('slow').css('position', 'absolute');
            changeFlask('img/flaskLogo1.png', 'img/flaskLogo2.png', 'img/flaskLogo.png', '#flaskLogo');
@@ -407,7 +478,7 @@ $(document).ready( function() {
                menu.hide();
                social.hide();
                footer.append('<button class="c-hamburger c-hamburger--htx"> <span>toggle menu</span> </button>');
-               hamToggle();
+               navHamToggle();
 
            }
 

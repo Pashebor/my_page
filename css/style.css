@@ -40,6 +40,7 @@
 
 body{
     background-color: #4e414a;
+    overflow: hidden;
 }
 .container{
     display: flex;
@@ -71,21 +72,23 @@ body{
   width: 20px;
   height: 50px;
 }
-.header ul,li{
+ ul,li{
     list-style: none;
     margin-left: auto;
     padding-right: 20px;
     padding-bottom: 20px;
 }
 
-.header #menu li:first-child{
-    margin-top: 10px;
+.nav-list{
+    position: absolute;
+    z-index: 1;
+    width: 10%;
+    top: 20px;
+    right: 0;
+    text-align: center;
 }
 
-.header #menu li:nth-child(2), li:nth-child(3), li:last-child{
-    margin-top: 5px;
-}
-.header #menu li:nth-child(1):before{
+.nav-list #menu li:nth-child(1):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f015';
@@ -93,7 +96,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:nth-child(2):before{
+.nav-list #menu li:nth-child(2):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f05a';
@@ -101,7 +104,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:nth-child(3):before{
+.nav-list #menu li:nth-child(3):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f0e0';
@@ -109,7 +112,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:nth-child(4):before{
+.nav-list #menu li:nth-child(4):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f02d';
@@ -117,7 +120,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:hover:before{
+.nav-list #menu li:hover:before{
     color: #dbdbdb;
 }
 
@@ -191,7 +194,6 @@ body{
     width:100%;
     height:100%;
     z-index:-1;
-    /*background: url('../img/my_photoes/surprise_blur.png') no-repeat center;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -203,11 +205,6 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
-    /*background: url('../img/my_photoes/surprise_blur.png') no-repeat center ;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
 }
 
 .content button{
@@ -454,12 +451,9 @@ body{
 /*"About Us" styles*/
 
 #about-us{
-    position: absolute;
-    z-index:-1;
+    position: relative;
     width: 100%;
-    height: 50%;
-    top: 20%;
-    /*margin-left: calc(50% - 400px);*/
+    margin-top: 10%;
 }
 
 #about-us h1{
@@ -502,7 +496,8 @@ body{
 }
 
 #photoRow{
-    margin-top: 160px;
+    position: relative;
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     width: 90%;
@@ -654,7 +649,7 @@ font-weight: 800;
     border-radius: none;
     border: none;
     cursor: pointer;
-    transition: background 0.3s;
+    /*transition: background 0.3s;*/
 }
 
 .c-hamburger:focus {
@@ -668,7 +663,7 @@ font-weight: 800;
     left: 18px;
     right: 18px;
     height: 8px;
-    background: white;
+    background: #d08646;
 }
 
 .c-hamburger span::before,
@@ -678,7 +673,7 @@ font-weight: 800;
     left: 0;
     width: 100%;
     height: 8px;
-    background-color: #fff;
+    background-color: #d08646;
     content: "";
 }
 
@@ -691,11 +686,12 @@ font-weight: 800;
 }
 
 .c-hamburger--htx {
-    background-color: #ff3264;
+    background: none;
+    /*background-color: !*#d08646*! none;*/
 }
 
 .c-hamburger--htx span {
-    transition: background 0s 0.3s;
+    /*transition: background 0s 0.3s;*/
 }
 
 .c-hamburger--htx span::before,
@@ -714,7 +710,7 @@ font-weight: 800;
 
 /* active state, i.e. menu open */
 .c-hamburger--htx.is-active {
-    background-color: #cb0032;
+    /*background-color: !*#d08646*! none;*/
 }
 
 .c-hamburger--htx.is-active span {
@@ -736,4 +732,15 @@ font-weight: 800;
     transition-delay: 0s, 0.3s;
 }
 
+
+@media only screen and (max-device-width: 800px){
+    .social{
+        position: fixed;
+        z-index: 1;
+    }
+
+    #about-us{
+        margin-top: 5%;
+    }
+}
 
