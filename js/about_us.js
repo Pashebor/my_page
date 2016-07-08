@@ -163,14 +163,8 @@ $(document).ready(function () {
     
     btnHome.click( function () {
         clickCount = 0;
-
-        if(window.innerWidth >= 1000) {
-           toggleFlag(true);
+        toggleFlag(true);
            $('#wrap, #bubbles').fadeIn('slow');
-       } else {
-           toggleFlag(true);
-           $('#wrap').fadeIn('slow');
-       }
     });
 
 
