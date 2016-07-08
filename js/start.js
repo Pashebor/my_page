@@ -778,7 +778,7 @@ $(window).on('load', function () {
            }
            );
        }, 1000);
-    changeFlask('img/colba1.png', 'img/colba2.png', 'img/colba3.png', '#flask');
+    changeFlask('img/colba.jpg', 'img/colba.jpg', 'img/colba.jpg', '#flask');
 });
 
 $(document).ready( function() {
