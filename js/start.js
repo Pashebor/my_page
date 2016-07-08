@@ -87,7 +87,7 @@ function navHamToggle() {
                     opacity: '1'
                 }, 400);
 
-                social.css('width', '70%').show().animate({
+                social.css('width', '75%').show().animate({
                     marginLeft: '10%',
                     opacity: '1'
                 }, 400);
