@@ -256,6 +256,8 @@ body{
     margin-left: calc(50% - 350px);
 }
 #flask{
+    width: 13px;
+    height: 45px;
     margin-top: 4%;
     margin-left: calc(50% - 7px);
 }
