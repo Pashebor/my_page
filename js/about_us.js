@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     'use strict';
-    var btnAbout = $('#info'), btnHome = $('#home'), content = $('.content');
+    var btnAbout = $('#info'), btnHome = $('#home'), content = $('.content'), circle = $('.circle');
     var clickCount = 0;
     function toggleFlag(flag) {
 
@@ -13,7 +13,7 @@ $(document).ready(function () {
             content.append('<div id="photoRow"><div class="dashed"><div id="pavel"><img alt=""><p>Павел Демьянов</p><p>Programming</p></div><div class="desc"><p>Мы разрабатываем web-приложения.</p><br><p>Кликни, и произойдет чудо.</p></div></div>' +
                 '<div class="dashed"><div id="alex"><img alt=""><p>Алексей Игнатов</p><p>Design & photo</p></div><div class="desc"><p>Мы занимаемся обработкой фото и графики.</p><br><p>Наведи камеру и снимай.</p></div></div></div>');
 
-            var pavelDesc = $('#photoRow .dashed:first-child .desc'), alexName = $('#photoRow .dashed:last-child #alex p'), alexImg = $('#photoRow .dashed:last-child #alex img'),
+            var alexName = $('#photoRow .dashed:last-child #alex p'), alexImg = $('#photoRow .dashed:last-child #alex img'),
                 alexPhotoShootSign = $('#photoRow .dashed:last-child .desc p:nth-child(3)'), alexDesc = $('#photoRow .dashed:last-child .desc p:nth-child(1)'),
                 alexIdBlock = $('#photoRow .dashed:last-child #alex'), alexDescBlock = $('#photoRow .dashed:last-child .desc'), alexBlock = $('#photoRow .dashed:last-child'),
                 pavelBlock = $('#photoRow .dashed:first-child'), pavelIdBlock = $('#photoRow .dashed:first-child #pavel'),
@@ -21,8 +21,9 @@ $(document).ready(function () {
                 pavelDesc = $('#photoRow .dashed:first-child .desc p:nth-child(1)'), pavelName = $('#photoRow .dashed:first-child #pavel p'),
                 pavelImg = $('#photoRow .dashed:first-child #pavel img');
 
-            alexDesc.hover(function () {
-
+            alexDesc.hover(function (event) {
+               event.stopPropagation();
+               event.preventDefault();
                pavelName.animate({opacity: 0, display: 'none'}, 500);
                pavelImg.animate({width: '0', height: '0', opacity: 0, display: 'none'}, 500);
                pavelClickSign.animate({marginLeft: '80px', opacity: 0, display: 'none'}, 500);
@@ -45,13 +46,15 @@ $(document).ready(function () {
                    }, 400);
                }, 400);
 
-            }, function () {
+            }, function (event) {
 
+                event.stopPropagation();
+                event.preventDefault();
                 pavelIdBlock.show();
                 pavelDescBlock.show();
 
-                alexIdBlock.animate({width: '30%'}, 400);
-                alexDescBlock.animate({width: '70%'}, 400);
+                alexIdBlock.animate({width: '40%'}, 400);
+                alexDescBlock.animate({width: '60%'}, 400);
 
                 pavelBlock.fadeIn('fast');
                 alexPhotoShootSign.fadeIn('slow');
@@ -74,7 +77,9 @@ $(document).ready(function () {
             });
 
 
-            pavelDesc.hover(function(){
+            pavelDesc.hover(function(event){
+                event.stopPropagation();
+                event.preventDefault();
 
                 alexName.animate({opacity: 0, display: 'none'}, 500);
 
@@ -102,13 +107,15 @@ $(document).ready(function () {
                     }, 400);
                 }, 400);
 
-            }, function(){
+            }, function(event){
+                event.stopPropagation();
+                event.preventDefault();
 
                 alexIdBlock.show();
                 alexDescBlock.show();
 
-                pavelIdBlock.animate({width: '30%'}, 400);
-                pavelDescBlock.animate({width: '70%'}, 400);
+                pavelIdBlock.animate({width: '40%'}, 400);
+                pavelDescBlock.animate({width: '60%'}, 400);
 
                 alexBlock.fadeIn('fast');
                 pavelClickSign.fadeIn('slow');
@@ -139,7 +146,10 @@ $(document).ready(function () {
 
     btnAbout.click(function (event) {
         event.stopPropagation();
-        console.log(content.innerHeight());
+        console.log('first ' + content.innerHeight());
+        console.log('second ' + window.innerHeight);
+        console.log('third ' + circle.innerHeight());
+        console.log('fourth ' + $('#body').innerHeight());
         window.location.href = '#about_us';
         clickCount += 1;
         if (clickCount === 1) {
@@ -150,13 +160,7 @@ $(document).ready(function () {
           });
         }
     });
-
-    /*speechCloudPavel.hover(function(){
-        speechCloudAlex.hide();
-    }, function(){
-        speechCloudAlex.show();
-    });*/
-
+    
     btnHome.click( function () {
         clickCount = 0;
 

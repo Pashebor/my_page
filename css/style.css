@@ -40,6 +40,7 @@
 
 body{
     background-color: #4e414a;
+    overflow: hidden;
 }
 .container{
     display: flex;
@@ -71,21 +72,23 @@ body{
   width: 20px;
   height: 50px;
 }
-.header ul,li{
+ ul,li{
     list-style: none;
     margin-left: auto;
     padding-right: 20px;
     padding-bottom: 20px;
 }
 
-.header #menu li:first-child{
-    margin-top: 10px;
+.nav-list{
+    position: absolute;
+    z-index: 1;
+    width: 10%;
+    top: 20px;
+    right: -2%;
+    text-align: center;
 }
 
-.header #menu li:nth-child(2), li:nth-child(3), li:last-child{
-    margin-top: 5px;
-}
-.header #menu li:nth-child(1):before{
+.nav-list #menu li:nth-child(1):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f015';
@@ -93,7 +96,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:nth-child(2):before{
+.nav-list #menu li:nth-child(2):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f05a';
@@ -101,7 +104,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:nth-child(3):before{
+.nav-list #menu li:nth-child(3):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f0e0';
@@ -109,7 +112,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:nth-child(4):before{
+.nav-list #menu li:nth-child(4):before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f02d';
@@ -117,7 +120,7 @@ body{
     cursor: pointer;
 }
 
-.header #menu li:hover:before{
+.nav-list #menu li:hover:before{
     color: #dbdbdb;
 }
 
@@ -191,7 +194,6 @@ body{
     width:100%;
     height:100%;
     z-index:-1;
-    /*background: url('../img/my_photoes/surprise_blur.png') no-repeat center;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -203,11 +205,6 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
-    /*background: url('../img/my_photoes/surprise_blur.png') no-repeat center ;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
 }
 
 .content button{
@@ -245,7 +242,7 @@ body{
     display: flex;
     position: fixed;
     flex-direction: row;
-    background-color: #4e414a;
+    background-color: none;
     width: 100%;
     bottom: 0;
 }
@@ -454,12 +451,9 @@ body{
 /*"About Us" styles*/
 
 #about-us{
-    position: absolute;
-    z-index:-1;
+    position: relative;
     width: 100%;
-    height: 50%;
-    top: 20%;
-    /*margin-left: calc(50% - 400px);*/
+    margin-top: 10%;
 }
 
 #about-us h1{
@@ -502,15 +496,14 @@ body{
 }
 
 #photoRow{
-    margin-top: 120px;
+    position: relative;
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
-    position: absolute;
-    z-index:2;
     width: 90%;
     height: 50%;
-    left: 5%;
-    right: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
     align-items: center;
     justify-content: center;
 }
@@ -531,13 +524,13 @@ body{
 
 #photoRow #alex {
     display: block;
-    width: 30%;
+    width: 40%;
 }
 
 
 #photoRow #pavel{
     display: block;
-    width: 30%;
+    width: 40%;
 }
 
 
@@ -552,7 +545,7 @@ body{
 #photoRow .desc{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 60%;
     margin-left: auto;
 }
 
@@ -638,3 +631,119 @@ font-weight: 800;
 @keyframes descAnimationIn { from{width: 70%;} to{width: 100%;} }
 
 @keyframes descAnimationOut { from{width: 100%;} to{width: 70%;} }
+
+/*Nav sandwich icon*/
+
+.c-hamburger {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    padding: 0;
+    width: 96px;
+    height: 96px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    /*transition: background 0.3s;*/
+}
+
+.c-hamburger:focus {
+    outline: none;
+}
+
+.c-hamburger span {
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: #d08646;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: #d08646;
+    content: "";
+}
+
+.c-hamburger span::before {
+    top: -20px;
+}
+
+.c-hamburger span::after {
+    bottom: -20px;
+}
+
+.c-hamburger--htx {
+    background: none;
+    /*background-color: !*#d08646*! none;*/
+}
+
+.c-hamburger--htx span {
+    /*transition: background 0s 0.3s;*/
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before {
+    transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+    transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htx.is-active {
+    /*background-color: !*#d08646*! none;*/
+}
+
+.c-hamburger--htx.is-active span {
+    background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+    transition-delay: 0s, 0.3s;
+}
+
+
+@media only screen and (max-device-width: 800px){
+    .social{
+        position: fixed;
+        z-index: 1;
+    }
+    .nav-list{
+        position: fixed;
+        z-index: 1;
+    }
+    #about-us{
+        margin-top: 5%;
+    }
+}
+
