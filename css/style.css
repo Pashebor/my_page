@@ -284,10 +284,15 @@ body{
     width: 200px;
     height: 100px;
     background-color: white;
+    background: -webkit-linear-gradient(left, white , #E4E4E4);
+    background: -o-linear-gradient(right, white, #E4E4E4);
+    background: -moz-linear-gradient(right, white, #E4E4E4);
+    background: linear-gradient(to right, white , #E4E4E4);
+    box-shadow: 3px -2px 5px 2px rgba(0, 0, 0, 0.7);
     border-radius: 50%;
     text-align: center;
     line-height: 50px;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
 }
 
 
@@ -297,9 +302,14 @@ body{
     width: 40px;
     height: 40px;
     background-color: white;
+    background: -webkit-linear-gradient(left, white , #E4E4E4);
+    background: -o-linear-gradient(right, white, #E4E4E4);
+    background: -moz-linear-gradient(right, white, #E4E4E4);
+    background: linear-gradient(to right, white , #E4E4E4);
+    box-shadow: 3px -2px 5px 2px rgba(0, 0, 0, 0.7);
     border-radius: 50%;
     margin-left: 140px;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
 }
 
 #third-bubble{
@@ -307,8 +317,13 @@ body{
     width: 20px;
     height: 20px;
     background-color: white;
+    background: -webkit-linear-gradient(left, white , #E4E4E4);
+    background: -o-linear-gradient(right, white, #E4E4E4);
+    background: -moz-linear-gradient(right, white, #E4E4E4);
+    background: linear-gradient(to right, white , #E4E4E4);
+    box-shadow: 3px -2px 5px 2px rgba(0, 0, 0, 0.7);
     border-radius: 50%;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     margin-left: 180px;
     top: 155px;
 }

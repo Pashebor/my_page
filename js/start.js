@@ -697,11 +697,11 @@ function thinkingAnimationsForMiddleMobiles() {
 
             setTimeout(function(){
 
-                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim 0.6s 1', 'top': '230px', 'margin-left': '0px'});
+                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim 0.6s 1', 'top': '230px', 'margin-left': '0', 'margin-top': '0'});
 
                 setTimeout(function () {
 
-                    firstBubble.css({'display': 'block', 'animation': 'firstBubbleAnim 0.6s 1', 'top': '300px', 'margin-left' : '-95px', 'width': '150px', 'height': '75px', 'line-height': '37.5px'});
+                    firstBubble.css({'display': 'block', 'animation': 'firstBubbleAnim 0.6s 1', 'top': '290px', 'margin-left' : '-95px', 'width': '150px', 'height': '75px', 'line-height': '37.5px'});
 
                     setTimeout(function() {
                         firstBubble.html('<p id="hi">Думаем...</p>');
@@ -719,7 +719,7 @@ function thinkingAnimationsForMiddleMobiles() {
 
             setTimeout(function () {
 
-                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim2 0.6s 1', 'top': '230px', 'margin-left': '-20px'});
+                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim2 0.6s 1', 'top': '235px', 'margin-left': '-20px'});
 
                 setTimeout(function () {
 
@@ -737,7 +737,7 @@ function thinkingAnimationsForMiddleMobiles() {
         'use strict';
         setTimeout( function () {
 
-            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim3 0.6s 1', 'margin-left': '200px', 'top': '155px'});
+            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim3 0.6s 1', 'margin-left': '200px', 'top': '140px'});
 
             setTimeout(function () {
                 secondBubble.css({
@@ -747,7 +747,7 @@ function thinkingAnimationsForMiddleMobiles() {
                     'height': '40px',
                     'background-color': 'white',
                     'border-radius': '50%',
-                    'top': '105px',
+                    'top': '108px',
                     'margin-top': '-20px',
                     'margin-left': '200px',
                     'animation': 'secondBubbleAnim3 0.6s 1',
@@ -912,6 +912,7 @@ $(window).on('load', function () {
     flask.hide();
     var wave = $('.wave');
     wave.hide();
+    bubbles.hide();
     circle.css({
         'animation' : 'circleAnimationIn',
         'animation-duration' : '1s',
@@ -942,7 +943,7 @@ $(window).on('load', function () {
            }
            );
        }, 1000);
-    changeFlask('img/colba1.jpg', 'img/colba2.jpg', 'img/colba3.jpg', '#flask');
+    changeFlask('img/colba1.png', 'img/colba2.png', 'img/colba3.png', '#flask');
 });
 
 $(document).ready( function() {
@@ -1020,6 +1021,7 @@ $(document).ready( function() {
    circle.click(function (event) {
        event.preventDefault();
        flask.fadeOut('slow');
+       bubbles.show();
        setTimeout( function () {
        circle.css({
           'animation' : 'circleAnimationOut',
