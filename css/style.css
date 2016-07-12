@@ -622,6 +622,105 @@ body{
 
 }
 
+/*3. Thinking, Surprise and Pleased*/
+
+@media only screen and (min-device-width: 321px) and (max-device-width: 389px){
+
+    /*Thinking*/
+    @keyframes thirdBubbleAnim{
+        0%{width: 0; height: 0; margin-left: 50px; margin-top: 10px;}
+        100%{width: 20px; height: 20px; margin-left: 40px; margin-top: 0;}
+    }
+
+    @keyframes secondBubbleAnim{
+        0%{width: 0; height: 0; margin-left: 20px; margin-top: 20px;}
+        100%{width: 40px; height: 40px; margin-left: 0; margin-top: 0;}
+    }
+
+    @keyframes firstBubbleAnim{
+        0%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
+        100%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
+    }
+
+    @keyframes thirdBubbleDisappear {
+        0%{width: 20px; height: 20px; margin-left: 40px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 50px; margin-top: 10px;}
+    }
+
+    @keyframes  secondBubbleDisappear{
+        0%{width: 40px; height: 40px; margin-left: 0; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 20px; margin-top: 20px;}
+    }
+
+    @keyframes firstBubbleDisappear {
+        0%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
+    }
+
+    /*Surprise*/
+    @keyframes thirdBubbleAnim2{
+        0%{width: 0; height: 0; margin-left: 10px; margin-top: 10px;}
+        100%{width: 20px; height: 20px; margin-left: 0; margin-top: 0;}
+    }
+
+    @keyframes secondBubbleAnim2 {
+        0%{width: 0; height: 0; margin-left: 0; margin-top: 20px;}
+        100%{width: 40px; height: 40px; margin-left: -20px; margin-top: 0;}
+    }
+
+    @keyframes firstBubbleAnim2{
+        0%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
+        100%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
+    }
+
+    @keyframes thirdBubbleDisappear2 {
+        0%{width: 20px; height: 20px; margin-left: 0; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 10px; margin-top: 10px;}
+    }
+
+    @keyframes  secondBubbleDisappear2 {
+        0%{width: 40px; height: 40px; margin-left: -20px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 0; margin-top: 20px;}
+    }
+
+    @keyframes firstBubbleDisappear2 {
+        0%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
+    }
+
+    /*Pleased*/
+    @keyframes thirdBubbleAnim3{
+        0%{width: 0; height: 0; margin-left: 210px; margin-top: 10px;}
+        100%{width: 20px; height: 20px; margin-left: 200px; margin-top: 0;}
+    }
+
+    @keyframes secondBubbleAnim3 {
+        0%{width: 0; height: 0; margin-left: 220px; margin-top: 0;}
+        100%{width: 40px; height: 40px; margin-left: 200px; margin-top: -20px;}
+    }
+
+    @keyframes firstBubbleAnim3{
+        0%{width: 0; height: 0; margin-left: 160px; margin-top: 50px;}
+        100%{width: 160px; height: 80px; margin-left: 80px; margin-top: 0;}
+    }
+
+    @keyframes thirdBubbleDisappear3 {
+        0%{width: 20px; height: 20px; margin-left: 200px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 210px; margin-top: 10px;}
+    }
+
+    @keyframes  secondBubbleDisappear3 {
+        0%{width: 40px; height: 40px; margin-left: 200px; margin-top: -20px;}
+        100%{width: 0; height: 0; margin-left: 220px; margin-top: 0;}
+    }
+
+    @keyframes firstBubbleDisappear3 {
+        0%{width: 160px; height: 80px; margin-left: 80px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 160px; margin-top: 50px;}
+    }
+
+}
+
 
 /*"About Us" styles*/
 
