@@ -1,17 +1,28 @@
 
 $(document).ready(function () {
     'use strict';
-    var btnAbout = $('#info'), btnHome = $('#home'), content = $('.content'), circle = $('.circle');
-    var clickCount = 0;
+    var btnAbout = $('#info'), btnHome = $('#home'), content = $('.content'), circle = $('.circle'), header = $('.header');
+    var clickCount = 0 , circle = $('.circle');
+    var headerWidth = header.innerWidth();
+
+    function centerHeaderLogo() {
+        return ((window.innerWidth / 2) - (headerWidth / 6.5))  + 'px';
+    }
+
     function toggleFlag(flag) {
 
         if (flag === false) {
-
+            circle.css({'overflow-y': 'scroll'});
             content.append('<div id="about-us"><h1>О Нас</h1><p>думаем&nbsp;&nbsp;&nbsp;удивляемся&nbsp;&nbsp;&nbsp;довольны работой</p>' +
                 '<p>Создаем сайты, которые опережают время.<br> Формируем стратегии онлайн-присутствия.<br> Повышаем ваши продажи в интернете.<br> Работаем с комплексными интерактивными проектами.<br>' +
                 ' Сопровождение компаний и брендов на длинных дистанциях.</p></div>').fadeIn('slow');
             content.append('<div id="photoRow"><div class="dashed"><div id="pavel"><img alt=""><p>Павел Демьянов</p><p>Programming</p></div><div class="desc"><p>Мы разрабатываем web-приложения.</p><br><p>Кликни, и произойдет чудо.</p></div></div>' +
                 '<div class="dashed"><div id="alex"><img alt=""><p>Алексей Игнатов</p><p>Design & photo</p></div><div class="desc"><p>Мы занимаемся обработкой фото и графики.</p><br><p>Наведи камеру и снимай.</p></div></div></div>');
+            content.append('<div class="flask"><div class="circle-flask small_circle"></div> <div class="circle-flask middle_circle"></div> <div class="circle-flask little_circle little_circle_white"></div> ' +
+                '<div class="circle-flask little_circle little_circle_purpure"></div> <div class="circle-flask little_circle little_circle_blue"></div><div class="flask_throat">' +
+                '<div class="flask_throat_one"></div> <div class="flask_throat_two"></div> <div class="flask_throat_three"></div> <div class="flask_throat_four"></div></div> <div class="flask_bottom"> <div class="big_triangle"><div class="flask_bottom_one"></div> ' +
+                '<div class="flask_bottom_two"></div> <div class="flask_bottom_three"></div> <div class="flask_bottom_four"></div> <div class="flask_bottom_five"></div> ' +
+                '<div class="flask_bottom_six"></div></div> </div> </div>');
 
             var alexName = $('#photoRow .dashed:last-child #alex p'), alexImg = $('#photoRow .dashed:last-child #alex img'),
                 alexPhotoShootSign = $('#photoRow .dashed:last-child .desc p:nth-child(3)'), alexDesc = $('#photoRow .dashed:last-child .desc p:nth-child(1)'),
@@ -141,22 +152,26 @@ $(document).ready(function () {
         } else {
             $('#about-us').remove();
             $('#photoRow').remove();
+            $('.flask').remove();
+            circle.css({'overflow-y': 'hidden'});
         }
     }
 
     btnAbout.click(function (event) {
         event.stopPropagation();
-        console.log('first ' + content.innerHeight());
-        console.log('second ' + window.innerHeight);
-        console.log('third ' + circle.innerHeight());
-        console.log('fourth ' + $('#body').innerHeight());
         window.location.href = '#about_us';
         clickCount += 1;
+
         if (clickCount === 1) {
-          $('#wrap, #bubbles').fadeOut('fast');
-          toggleFlag(false);
-          $('.circle').hover(function () {
-             $('.wave').hide();
+            header.animate({marginLeft: ''+ centerHeaderLogo() +''}, 600);
+
+            $('#wrap, #bubbles').fadeOut('fast');
+            toggleFlag(false);
+
+            $('.circle').hover(function () {
+
+                $('.wave').hide();
+
           });
         }
     });
@@ -165,6 +180,7 @@ $(document).ready(function () {
         clickCount = 0;
         toggleFlag(true);
            $('#wrap, #bubbles').fadeIn('slow');
+        header.animate({marginLeft: '0'}, 600);
     });
 
 

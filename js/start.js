@@ -693,15 +693,15 @@ function thinkingAnimationsForMiddleMobiles() {
 
         setTimeout(function () {
 
-            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim 0.6s 1', 'margin-left' : '40px', 'top': '200px'});
+            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim 0.6s 1', 'margin-left' : '17.5px', 'top': '210px'});
 
             setTimeout(function(){
 
-                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim 0.6s 1', 'top': '230px', 'margin-left': '0', 'margin-top': '0'});
+                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim 0.6s 1', 'top': '220px', 'margin-left': '-20.5px', 'margin-top': '0'});
 
                 setTimeout(function () {
 
-                    firstBubble.css({'display': 'block', 'animation': 'firstBubbleAnim 0.6s 1', 'top': '290px', 'margin-left' : '-95px', 'width': '150px', 'height': '75px', 'line-height': '37.5px'});
+                    firstBubble.css({'display': 'block', 'animation': 'firstBubbleAnim 0.6s 1', 'top': '260px', 'margin-left' : '-85px','line-height': '32.5px'});
 
                     setTimeout(function() {
                         firstBubble.html('<p id="hi">Думаем...</p>');
@@ -715,15 +715,15 @@ function thinkingAnimationsForMiddleMobiles() {
         'use strict';
         setTimeout( function () {
 
-            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim2 0.6s 1', 'margin-left' : '0', 'top': '200px'});
+            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim2 0.6s 1', 'margin-left' : '-17.5px', 'top': '215px'});
 
             setTimeout(function () {
 
-                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim2 0.6s 1', 'top': '235px', 'margin-left': '-20px'});
+                secondBubble.css({'display': 'block', 'animation': 'secondBubbleAnim2 0.6s 1', 'top': '245px', 'margin-left': '-35px'});
 
                 setTimeout(function () {
 
-                    firstBubble.css({'display': 'block', 'animation': 'firstBubbleAnim2 0.6s 1', 'top': '300px', 'margin-left' : '-95px', 'width': '150px', 'height': '75px', 'line-height': '37.5px'});
+                    firstBubble.css({'display': 'block', 'animation': 'firstBubbleAnim2 0.6s 1', 'top': '285px', 'margin-left' : '-105px', 'line-height': '32.5px'});
 
                     setTimeout(function() {
                         firstBubble.html('<p id="hi">Удивляемся...</p>');
@@ -737,37 +737,16 @@ function thinkingAnimationsForMiddleMobiles() {
         'use strict';
         setTimeout( function () {
 
-            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim3 0.6s 1', 'margin-left': '200px', 'top': '140px'});
+            thirdBubble.css({'display': 'block', 'animation': 'thirdBubbleAnim3 0.6s 1', 'margin-left': '212.5px', 'top': '110px'});
 
             setTimeout(function () {
-                secondBubble.css({
-
-                    'position': 'absolute',
-                    'width': '40px',
-                    'height': '40px',
-                    'background-color': 'white',
-                    'border-radius': '50%',
-                    'top': '108px',
-                    'margin-top': '-20px',
-                    'margin-left': '200px',
-                    'animation': 'secondBubbleAnim3 0.6s 1',
-                    'display' : 'block'
-                });
+                
+                secondBubble.css({'position': 'absolute', 'top': '70px', 'margin-left': '217.5px', 'animation': 'secondBubbleAnim3 0.6s 1', 'display' : 'block'});
+                
                 setTimeout(function () {
-                    firstBubble.css({
-                        'position': 'absolute',
-                        'top': '5px',
-                        'width': '160px',
-                        'height': '80px',
-                        'margin-left': '80px',
-                        'background-color': 'white',
-                        'border-radius': '50%',
-                        'text-align': 'center',
-                        'line-height': '20px',
-                        'word-wrap': 'break-word',
-                        'display': 'block',
-                        'animation': 'firstBubbleAnim3 0.6s 1'
-                    });
+                    
+                    firstBubble.css({'position': 'absolute', 'top': '5px', 'margin-left': '100px', 'line-height': '15px', 'text-align': 'center', 'word-wrap': 'break-word', 'display': 'block', 'animation': 'firstBubbleAnim3 0.6s 1'});
+                    
                     setTimeout(function() {
                         firstBubble.html('<p id="hi">Довольны  работой...</p>');
                     }, 600);
@@ -1190,13 +1169,7 @@ $(document).ready( function() {
            changeFlask('img/flaskLogo1.png', 'img/flaskLogo2.png', 'img/flaskLogo.png', '#flaskLogo');
            animateBackground();
            loopTimerForBackgroundImages();
-           /*if (windowWidth >= 1000) {
-
-           loopTimerForBackgroundImages();
-
-           } else {
-               $('#bubbles').hide();
-           }*/
+           
            if (windowWidth < 800) {
                menu.hide();
                social.hide();
