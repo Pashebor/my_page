@@ -20,9 +20,34 @@ $(document).ready(function () {
                 '<div class="dashed"><div id="alex"><img alt=""><p>Алексей Игнатов</p><p>Design & photo</p></div><div class="desc"><p>Мы занимаемся обработкой фото и графики.</p><br><p>Наведи камеру и снимай.</p></div></div></div>');
             content.append('<div class="flask"><div class="circle-flask small_circle"></div> <div class="circle-flask middle_circle"></div> <div class="circle-flask little_circle little_circle_white"></div> ' +
                 '<div class="circle-flask little_circle little_circle_purpure"></div> <div class="circle-flask little_circle little_circle_blue"></div><div class="flask_throat">' +
-                '<div class="flask_throat_one"></div> <div class="flask_throat_two"></div> <div class="flask_throat_three"></div> <div class="flask_throat_four"></div></div> <div class="flask_bottom"> <div class="big_triangle"><div class="flask_bottom_one"></div> ' +
-                '<div class="flask_bottom_two"></div> <div class="flask_bottom_three"></div> <div class="flask_bottom_four"></div> <div class="flask_bottom_five"></div> ' +
-                '<div class="flask_bottom_six"></div></div> </div> </div>');
+                '<div class="flask_throat_one"></div> <div class="flask_throat_two"></div> <div class="flask_throat_three"></div> <div class="flask_throat_four"></div></div> <div class="flask_bottom"> <div class="big_triangle">' +
+                '<div id="flask_bottom"></div> </div> </div> </div>');
+
+            var flaskBottom = $('#flask_bottom'),
+                waveWidth = 10,
+                waveCount = Math.round(flaskBottom.innerWidth()/waveWidth),
+                docFrag = document.createDocumentFragment();
+
+            for(var i = 0; i < waveCount; i++) {
+                var wave = document.createElement('div');
+                wave.className += ' inner-liquid';
+                docFrag.appendChild(wave);
+                wave.style.left = i * waveWidth + "px";
+                wave.style.webkitAnimationDelay = (i/60) + "s";
+            }
+           flaskBottom.append(docFrag);
+
+             /*   waveWidth = 10,
+                waveCount = Math.floor(flaskBottom/waveWidth);
+
+            for(var i = 0; i < waveCount; i++){
+                var wave = "<div class='inner-liquid'></div>";
+                wave.css('left', i * waveWidth + 'px'); 
+                wave.css('animation-delay', (i/100) + "s");
+            }*/
+
+
+
 
             var alexName = $('#photoRow .dashed:last-child #alex p'), alexImg = $('#photoRow .dashed:last-child #alex img'),
                 alexPhotoShootSign = $('#photoRow .dashed:last-child .desc p:nth-child(3)'), alexDesc = $('#photoRow .dashed:last-child .desc p:nth-child(1)'),
