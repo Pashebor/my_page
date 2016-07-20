@@ -1105,6 +1105,102 @@ font-weight: 800;
 
 @keyframes descAnimationOut { from{width: 100%;} to{width: 70%;} }
 
+#adaptive-photo-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-flow: wrap;
+}
+#adaptive-photo-row .pavel-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#adaptive-photo-row .pavel-row .image{
+    width: 50%;
+}
+
+#adaptive-photo-row .pavel-row .who-is{
+    width: 50%;
+}
+
+#adaptive-photo-row .pavel-row .who-is p{
+    font-family: Railway;
+    font-size: 12pt;
+    color: #4e414a;
+    font-weight: 800;
+}
+
+#adaptive-photo-row .pavel-row .who-is p:last-child{
+margin-top: -10px;
+}
+
+#adaptive-photo-row .pavel-row .image img{
+margin-left: 40%;
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: black url("../img/my_photoes/paxa.jpg") no-repeat center;
+background-size: cover;
+}
+
+#adaptive-photo-row .pavel-desc{
+    width: 100%;
+    justify-content: center;
+}
+
+#adaptive-photo-row .pavel-desc p{
+    position: relative;
+    font-family: Railway;
+    color: #4e414a;
+    font-size: 10pt;
+    font-weight: 800;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    padding: 10px 5px 10px 5px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    animation: floatingAnimation 2s infinite;
+}
+
+#adaptive-photo-row .pavel-desc p:before{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    top: -40%;
+    left: 58px;
+    border: 15px solid transparent;
+    border-bottom-color:  white;
+}
+
+/*Adaptation for about-us screen*/
+@media screen and (min-device-width: 250px) and (max-device-width: 320px){
+
+    /*#photoRow .dashed:first-child{
+          width: 100%;
+    }
+
+    #photoRow .dashed:first-child #pavel{
+        width: 100%;
+    }
+
+    #photoRow .dashed:last-child{
+        width: 100%;
+    }
+
+    #photoRow .dashed:last-child #alex{
+        width: ;
+    }*/
+
+}
+
 /*Nav sandwich icon*/
 
 .c-hamburger {
@@ -1277,7 +1373,7 @@ font-weight: 800;
 /*Animated Flask*/
 
 .flask {
-    margin-top: 100px;
+    margin-top: 20px;
     height: 405px;
     width: 368px;
     position: absolute;
@@ -1319,19 +1415,6 @@ font-weight: 800;
 }
 
 
-
-/*.flask_bottom_one {
-    position: absolute;
-    background-color: #d08646;
-    width: 10px;
-    height: 150px;
-    position: absolute;
-    z-index: 4;
-    bottom: 4px;
-    !*transform: rotate(24deg);
-    transform-origin: right top;*!
-}*/
-
 #flask_bottom {
     position: absolute;
     background-color: #4e414a;
@@ -1341,8 +1424,6 @@ font-weight: 800;
     z-index: -1;
     right: 0;
     bottom: 0;
-/*transform: rotate(-12deg);
-transform-origin: left top;*/
 }
 
 .inner-liquid{
@@ -1354,7 +1435,7 @@ transform-origin: left top;*/
     bottom: 0;
     left: 20px;
     -webkit-animation-name: doWave;
-    -webkit-animation-duration: 1500ms;
+    -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;
     -webkit-transition-timing-function: ease-in-out;
 }
@@ -1365,6 +1446,7 @@ transform-origin: left top;*/
     50%{height:30%;}
     100%{height:50%;}
 }
+
 .flask_throat {
 overflow: hidden;
 height: 155px;
@@ -1429,19 +1511,19 @@ top: 100px;
 
 .circle-flask {
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid #4e414a;
     position: absolute;
     left: 45%;
     top: 30px;
 }
 
 .little_circle {
-    width: 5px;
-    height: 5px;
+    width: 15px;
+    height: 15px;
 }
 
 .little_circle_white {
-    background-color: #fff;
+    background-color: #d08646;
     left: 48%;
 }
 
@@ -1452,17 +1534,24 @@ top: 100px;
 }
 
 .little_circle_blue {
-    background-color: #117fba;
-    border: 1px solid #117fba;
+    background-color: #4e414a;
+    border: 1px solid #4e414a;
     left: 45%;
 }
 
 .small_circle {
-    width: 20px;
-    height: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15pt;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
 }
 
 .middle_circle {
+    text-align: center;
+    font-size: 20pt;
+    line-height: 40px;
     width: 45px;
     height: 45px;
 }
@@ -1496,14 +1585,14 @@ top: 100px;
 
 @keyframes circle {
     0% {
-        transform: translateZ(0px) translateY(20px) scale(1);
+        transform: translateZ(0px) translateY(20px) scale(1) rotate(360deg);
         opacity: 1;
     }
     85% {
         opacity: 0;
     }
     100% {
-        transform: translateZ(0px) translateY(-200px) scale(0);
+        transform: translateZ(0px) translateY(-200px) scale(0) rotate(0deg);
         opacity: 0;
     }
 }
