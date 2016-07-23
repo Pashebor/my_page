@@ -164,36 +164,88 @@ body{
     text-align: center;
 }
 
-.nav-list #menu li:nth-child(1):before{
+
+.nav-list #menu .home:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f015';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.nav-list #menu li:nth-child(2):before{
+.home-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f015';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.nav-list #menu .info:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f05a';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.nav-list #menu li:nth-child(3):before{
+.info-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f05a';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.nav-list #menu .contact:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f0e0';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.nav-list #menu li:nth-child(4):before{
+.contact-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f0e0';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.nav-list #menu .portfolio:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f02d';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.portfolio-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f02d';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+/*Animate changing color of nav and social*/
+@keyframes iconColorAnim {
+    0%{color: #d08646;}
+    100%{color: #4e414a;}
+}
+
+@keyframes iconBackColorAnim {
+    0%{color: #4e414a;}
+    100%{color: #d08646;}
 }
 
 .nav-list #menu li:hover:before{
@@ -207,48 +259,88 @@ body{
     bottom: 0;
 }
 
-.social #social-menu li:first-child:before{
+.social #social-menu .vk:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f189';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.vk-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f189';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:first-child:hover:before{
     color: #4E729A;
 }
 
-.social #social-menu li:nth-child(2):before{
+.social #social-menu .whatsApp:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f232';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.whatsApp-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f232';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:nth-child(2):hover:before{
     color: #43d854;
 }
 
-.social #social-menu li:nth-child(3):before{
+.social #social-menu .github:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f113';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.github-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f113';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:nth-child(3):hover:before{
     color: black;
 }
 
-.social #social-menu li:last-child:before{
+.social #social-menu .facebook:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f230';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.facebook-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f230';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:last-child:hover:before{
@@ -1105,37 +1197,64 @@ font-weight: 800;
 
 @keyframes descAnimationOut { from{width: 100%;} to{width: 70%;} }
 
-#adaptive-photo-row{
+/*Pavel photo row*/
+.adaptive-photo-row{
     display: flex;
     flex-direction: row;
     width: 100%;
     flex-flow: wrap;
 }
-#adaptive-photo-row .pavel-row{
+
+.adaptive-photo-row ul{
+    list-style: none;
+    padding: 10px 0 10px 10px;
+    margin: 0;
+    animation: listShow 1.5s 1;
+}
+
+.adaptive-photo-row ul li{
+    padding-left: 1em;
+    text-indent: -8px;
+}
+
+.adaptive-photo-row li:before{
+    font-family: FontAwesome;
+    font-size: 6pt;
+    content: '\f111   ';
+    color: #d08646;
+}
+
+@keyframes listShow{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.adaptive-photo-row .pavel-row{
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     width: 100%;
 }
-#adaptive-photo-row .pavel-row .image{
+.adaptive-photo-row .pavel-row .image{
     width: 50%;
 }
 
-#adaptive-photo-row .pavel-row .who-is{
+.adaptive-photo-row .pavel-row .who-is{
     width: 50%;
 }
 
-#adaptive-photo-row .pavel-row .who-is p{
+.adaptive-photo-row .pavel-row .who-is p{
     font-family: Railway;
     font-size: 12pt;
     color: #4e414a;
     font-weight: 800;
 }
 
-#adaptive-photo-row .pavel-row .who-is p:last-child{
+.adaptive-photo-row .pavel-row .who-is p:last-child{
 margin-top: -10px;
 }
 
-#adaptive-photo-row .pavel-row .image img{
+.adaptive-photo-row .pavel-row .image img{
 margin-left: 40%;
 width: 80px;
 height: 80px;
@@ -1144,12 +1263,13 @@ background: black url("../img/my_photoes/paxa.jpg") no-repeat center;
 background-size: cover;
 }
 
-#adaptive-photo-row .pavel-desc{
+.adaptive-photo-row .pavel-desc{
+    margin-top: 10px;
     width: 100%;
     justify-content: center;
 }
 
-#adaptive-photo-row .pavel-desc p{
+.adaptive-photo-row .pavel-desc p{
     position: relative;
     font-family: Railway;
     color: #4e414a;
@@ -1160,6 +1280,7 @@ background-size: cover;
     text-align: center;
     line-height: 40px;
     height: 40px;
+    word-break: break-all;
     padding: 10px 5px 10px 5px;
     background-color: white;
     border-radius: 20px;
@@ -1168,37 +1289,110 @@ background-size: cover;
     animation: floatingAnimation 2s infinite;
 }
 
-#adaptive-photo-row .pavel-desc p:before{
-    content: '';
+.adaptive-photo-row .pavel-desc p span{
+    animation: listShow 1s 1;
+}
+
+.adaptive-photo-row .pavel-desc p:before{
     position: absolute;
-    display: inline-block;
+    content: '';
+    display: block;
     width: 0;
     height: 0;
-    top: -40%;
+    top: -25px;
     left: 58px;
     border: 15px solid transparent;
     border-bottom-color:  white;
 }
 
-/*Adaptation for about-us screen*/
-@media screen and (min-device-width: 250px) and (max-device-width: 320px){
+/*Alex photo row*/
 
-    /*#photoRow .dashed:first-child{
-          width: 100%;
-    }
 
-    #photoRow .dashed:first-child #pavel{
-        width: 100%;
-    }
+.adaptive-photo-row .alex-row{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
 
-    #photoRow .dashed:last-child{
-        width: 100%;
-    }
+.adaptive-photo-row .alex-row .image{
+    width: 50%;
+}
 
-    #photoRow .dashed:last-child #alex{
-        width: ;
-    }*/
+.adaptive-photo-row .alex-row .who-is{
+    width: 50%;
+}
 
+.adaptive-photo-row .alex-row .image img{
+    margin-left: 10%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: black url("../img/my_photoes/lexa.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.adaptive-photo-row .alex-row .who-is p{
+    text-align: right;
+    font-family: Railway;
+    font-size: 12pt;
+    color: #4e414a;
+    font-weight: 800;
+}
+
+.adaptive-photo-row .alex-row .who-is p:last-child{
+    margin-top: -10px;
+}
+
+.adaptive-photo-row .alex-desc{
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.adaptive-photo-row .alex-desc p{
+
+    position: relative;
+    font-family: Railway;
+    color: #4e414a;
+    font-size: 10pt;
+    font-weight: 800;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    line-height: 20px;
+    height: 40px;
+    padding: 10px 5px 10px 5px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    animation: floatingAnimation 2s infinite;
+}
+
+.adaptive-photo-row .alex-desc p span{
+    animation: listShow 1s 1;
+}
+
+.adaptive-photo-row .alex-desc p:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    top: -25px;
+    right: 66px;
+    border: 15px solid transparent;
+    border-bottom-color:  white;
+}
+
+/*Adaptation for bubble speech screen*/
+/*Middle screen*/
+@media screen and (min-device-width: 321px) and (max-device-width: 375px){
+    .adaptive-photo-row .alex-row{margin-top: 130px;}
+    .adaptive-photo-row .alex-desc p:before{right: 83px;}
+    .adaptive-photo-row .alex-desc p{line-height: 40px;}
+    .adaptive-photo-row .pavel-desc p:before{left: 62px;}
 }
 
 /*Nav sandwich icon*/
@@ -1227,7 +1421,7 @@ background-size: cover;
     outline: none;
 }
 
-.c-hamburger span {
+.c-hamburger .original {
     display: block;
     position: absolute;
     top: 44px;
@@ -1235,10 +1429,22 @@ background-size: cover;
     right: 18px;
     height: 4px;
     background: #d08646;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.c-hamburger span::before,
-.c-hamburger span::after {
+.ham-of-bottom{
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 4px;
+    background: #4e414a;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.c-hamburger .original::before,
+.c-hamburger .original::after {
     position: absolute;
     display: block;
     left: 0;
@@ -1246,36 +1452,70 @@ background-size: cover;
     height: 4px;
     background-color: #d08646;
     content: "";
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.c-hamburger span::before {
+.ham-of-bottom::after,
+.ham-of-bottom::before{
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #4e414a;
+    content: "";
+    animation: iconColorAnim 0.5s 1;
+}
+
+.c-hamburger .original::before {
     top: -13px;
 }
 
-.c-hamburger span::after {
+.ham-of-bottom::before{
+    top: -13px;
+}
+
+.c-hamburger .original::after {
     bottom: -13px;
 }
 
+.ham-of-bottom:after{
+    bottom: -13px;
+}
 .c-hamburger--htx {
     background: none;
     /*background-color: !*#d08646*! none;*/
 }
 
-.c-hamburger--htx span {
+.c-hamburger--htx .original {
     /*transition: background 0s 0.3s;*/
 }
 
-.c-hamburger--htx span::before,
-.c-hamburger--htx span::after {
+.c-hamburger--htx .original::before,
+.c-hamburger--htx .original::after {
     transition-duration: 0.3s, 0.3s;
     transition-delay: 0.3s, 0s;
 }
 
-.c-hamburger--htx span::before {
+.ham-of-bottom::before,
+.ham-of-bottom::after{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx .original::before {
     transition-property: top, transform;
 }
 
-.c-hamburger--htx span::after {
+.ham-of-bottom::before{
+    transition-property: top, transform;
+}
+
+.c-hamburger--htx .original::after {
+    transition-property: bottom, transform;
+}
+
+.ham-of-bottom::after{
     transition-property: bottom, transform;
 }
 
@@ -1284,22 +1524,41 @@ background-size: cover;
     /*background-color: !*#d08646*! none;*/
 }
 
-.c-hamburger--htx.is-active span {
+.c-hamburger--htx.is-active .original{
     background: none;
 }
 
-.c-hamburger--htx.is-active span::before {
+.c-hamburger.is-active .ham-of-bottom{
+    background: none;
+}
+
+.c-hamburger--htx.is-active .original::before {
     top: 0;
     transform: rotate(45deg);
 }
 
-.c-hamburger--htx.is-active span::after {
+.c-hamburger--htx.is-active .ham-of-bottom::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active .original::after {
     bottom: 0;
     transform: rotate(-45deg);
 }
 
-.c-hamburger--htx.is-active span::before,
-.c-hamburger--htx.is-active span::after {
+.c-hamburger--htx.is-active .ham-of-bottom::after{
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active .original::before,
+.c-hamburger--htx.is-active .original::after {
+    transition-delay: 0s, 0.3s;
+}
+
+.c-hamburger--htx.is-active .ham-of-bottom::before,
+.c-hamburger--htx.is-active .ham-of-bottom::after{
     transition-delay: 0s, 0.3s;
 }
 
@@ -1595,5 +1854,24 @@ top: 100px;
         transform: translateZ(0px) translateY(-200px) scale(0) rotate(0deg);
         opacity: 0;
     }
+}
+
+/*Adaptation animated flask to small screen*/
+@media screen and (min-device-width: 250px) and (max-device-width: 320px){
+    .flask{margin-top: 320px; width: 320px; margin-left: calc(50% - 160px); height: 357px;}
+    .big_triangle{width: 320px; height: 230px;}
+    .big_triangle:before {border-right: 132px solid transparent; left: 0;}
+    .big_triangle:after {border-left: 132px solid transparent; right: 0; }
+    .flask_throat{width: 56px; left: 132px;}
+    .middle_circle{width: 40px; height: 40px; line-height: 35px;}
+}
+/*Adaptation animated flask to middle screen*/
+@media screen and (min-device-width: 321px) and (max-device-width: 375px){
+    .flask{margin-top: 325px; width: 350px; margin-left: calc(50% - 175px); height: 385px;}
+    .big_triangle{width: 350px; height: 230px;}
+    .big_triangle:before {border-right: 142px solid transparent; left: 0;}
+    .big_triangle:after {border-left: 142px solid transparent; right: 0; }
+    .flask_throat{width: 65px; left: 142px;}
+    .middle_circle{width: 40px; height: 40px; line-height: 35px;}
 }
 

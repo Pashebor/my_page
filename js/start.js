@@ -1079,6 +1079,10 @@ $(document).ready( function() {
     var backgroundImages = ['think.jpg', 'surprise.jpg', 'smile.jpg'];
     var i = 0;
     var windowWidth = $(window).width();
+    var space = 0;
+
+    
+    
     $('div.backgroundFade').hide();
 
     menu.on('click', function (event) {
@@ -1173,7 +1177,7 @@ $(document).ready( function() {
            if (windowWidth < 800) {
                menu.hide();
                social.hide();
-               footer.append('<button class="c-hamburger c-hamburger--htx"> <span>toggle menu</span> </button>');
+               footer.append('<button class="c-hamburger c-hamburger--htx"> <span id="toggle-menu" class="original">toggle menu</span> </button>');
                navHamToggle();
 
            }

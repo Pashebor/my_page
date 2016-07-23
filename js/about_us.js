@@ -26,11 +26,46 @@ $(document).ready(function () {
         }
         return flaskBottom.append(docFrag);
     }
-///////
+   /********/
 
+    /*Change color of nav and social icons*/
+
+    function changeIconsColor() {
+
+        $('.circle').scroll(function () {
+            var scrolled_val = $(this).scrollTop(), fullHeightScreen = window.innerHeight + scrolled_val;
+
+            if(fullHeightScreen >= 1000) {
+                $('#home').removeClass('home').addClass('home-of-bottom');
+                $('#info').removeClass('info').addClass('info-of-bottom');
+                $('#contact').removeClass('contact').addClass('contact-of-bottom');
+                $('#portfolio').removeClass('portfolio').addClass('portfolio-of-bottom');
+                $('#vk').removeClass('vk').addClass('vk-of-bottom');
+                $('#whatsApp').removeClass('whatsApp').addClass('whatsApp-of-bottom');
+                $('#github').removeClass('github').addClass('github-of-bottom');
+                $('#facebook').removeClass('facebook').addClass('facebook-of-bottom');
+                $('#toggle-menu').removeClass('original').addClass('ham-of-bottom');
+            } else {
+                $('#home').removeClass('home-of-bottom').addClass('home');
+                $('#info').removeClass('info-of-bottom').addClass('info');
+                $('#contact').removeClass('contact-of-bottom').addClass('contact');
+                $('#portfolio').removeClass('portfolio-of-bottom').addClass('portfolio');
+                $('#vk').removeClass('vk-of-bottom').addClass('vk');
+                $('#whatsApp').removeClass('whatsApp-of-bottom').addClass('whatsApp');
+                $('#github').removeClass('github-of-bottom').addClass('github');
+                $('#facebook').removeClass('facebook-of-bottom').addClass('facebook');
+                $('#toggle-menu').removeClass('ham-of-bottom').addClass('original');
+            }
+        });
+
+    }
+    /********/
+    
     function toggleFlag(flag) {
 
         if (flag === false) {
+
+            changeIconsColor();
             circle.css({'overflow-y': 'scroll'});
 
             content.append('<div id="about-us"><h1>О Нас</h1><p>думаем&nbsp;&nbsp;&nbsp;удивляемся&nbsp;&nbsp;&nbsp;довольны работой</p>' +
@@ -39,13 +74,20 @@ $(document).ready(function () {
             if (window.innerWidth > 1000){
                 content.append('<div id="photoRow"><div class="dashed"><div id="pavel"><img alt=""><p>Павел Демьянов</p><p>Programming</p></div><div class="desc"><p>Мы разрабатываем web-приложения.</p><br><p>Кликни, и произойдет чудо.</p></div></div>' +
                 '<div class="dashed"><div id="alex"><img alt=""><p>Алексей Игнатов</p><p>Design & photo</p></div><div class="desc"><p>Мы занимаемся обработкой фото и графики.</p><br><p>Наведи камеру и снимай.</p></div></div></div>');
-            } else if ( window.innerWidth > 250 && window.innerWidth < 321) {
-                content.append('<div id="adaptive-photo-row">' +
+            } else if ( window.innerWidth > 250 && window.innerWidth < 425) {
+                content.append('<div class="adaptive-photo-row">' +
                     '<div class="pavel-row">' +
                        '<div class="image"><img alt=""></div>' +
                        '<div class="who-is"><p>Павел Демьянов</p><p>Programming</p></div>' +
-                    '</div><br><br><br><br><br>' +
+                    '</div>' +
                     '<div class="pavel-desc"><p>Мы разрабатываем web-приложения.</p></div>' +
+                    '</div>' +
+                    '<div class="adaptive-photo-row">' +
+                    '<div class="alex-row">' +
+                    '<div class="image"><img alt=""></div>' +
+                    '<div class="who-is"><p>Алексей Игнатов</p><p>Design & photo</p></div>' +
+                    '</div>' +
+                    '<div class="alex-desc"><p>Мы занимаемся обработкой фото и графики.</p></div>' +
                     '</div>');
             }
             content.append('<div class="flask"><div class="circle-flask small_circle">{</div> <div class="circle-flask middle_circle">@</div> <div class="circle-flask little_circle little_circle_white"></div> ' +
@@ -54,6 +96,85 @@ $(document).ready(function () {
                 '<div id="flask_bottom"></div> </div> </div> </div>');
 
             animateLiquid();
+
+            /*For adaptive speech*/
+            /*Pavel*/
+            var pavelDescAdaptive = $('.pavel-desc'), pavelDescTextAdptive = $('.pavel-desc p'), alexAdaptiveRow = $('.adaptive-photo-row:nth-child(4)'),
+                countPavelAdaptiveSpeech = 0;
+            //
+            /*Alex*/
+            var alexDescAdaptive = $('.alex-desc'), alexDescTextAdptive = $('.alex-desc p'), pavelAdaptiveRow = $('.adaptive-photo-row:nth-child(3)'),
+                countAlexAdaptiveSpeech = 0;
+            //
+            pavelDescAdaptive.on('click', function (event) {
+                event.stopPropagation();
+                event.preventDefault();
+                
+                countPavelAdaptiveSpeech += 1;
+                
+                if (countPavelAdaptiveSpeech === 1) {
+                    
+                    alexAdaptiveRow.fadeOut('fast');
+                    setTimeout(function () {
+                        pavelDescTextAdptive.animate({'height': '210px', 'line-height': '15px'}, 400);
+                        pavelDescTextAdptive.css('text-align', 'left');
+                        pavelDescTextAdptive.html('');
+
+                        setTimeout(function () {
+                            pavelDescTextAdptive.html('<ul>' +
+                                '<li>Выполнение полного цикла работ по созданию проектов различно- го уровня сложности.</li>' +
+                                '<li> Разработка промо-сайтов, кор-<br>поративных сайтов и интернет-<br>магазинов.</li>' +
+                                '<li>Дизайн сайиов и интерфейсов. <br>Работа с визуальным позициони-рованием, разработка интера-<br>ктивных стилей.</li></ul>');
+                        }, 400);
+                    }, 400);
+                }else {
+                    countPavelAdaptiveSpeech = 0;
+                    pavelDescTextAdptive.animate({'height': '40px', 'line-height': '40px'}, 400);
+                    pavelDescTextAdptive.css('text-align', 'center');
+                    pavelDescTextAdptive.html('');
+
+                    setTimeout(function () {
+                        pavelDescTextAdptive.html('<span>Мы разрабатываем web-приложения.</span>');
+                        setTimeout(function () {
+                            alexAdaptiveRow.fadeIn('fast');
+                        }, 400)
+                    }, 600);
+                }
+                
+            });
+            /******/
+            alexDescAdaptive.on('click', function (event) {
+                event.stopPropagation();
+                event.preventDefault();
+
+                countAlexAdaptiveSpeech += 1;
+
+                if (countAlexAdaptiveSpeech === 1) {
+                    
+                        alexDescTextAdptive.animate({'height': '135px', 'line-height': '15px'}, 400);
+                        alexDescTextAdptive.css('text-align', 'left');
+                        alexDescTextAdptive.html('');
+
+                        setTimeout(function () {
+                            alexDescTextAdptive.html("<ul>" +
+                                "<li>Разработка key visual от идеи до реализации.</li>" +
+                                "<li>Создаем 3D-визуализации, ретушь, фотореалистичные иллюстрации и рекламные фотосессии.</li></span>");
+                        }, 400);
+                    
+                }else {
+                    countAlexAdaptiveSpeech = 0;
+                    alexDescTextAdptive.animate({'height': '40px', 'line-height': '20px'}, 400);
+                    alexDescTextAdptive.css('text-align', 'center');
+                    alexDescTextAdptive.html('');
+
+                    setTimeout(function () {
+                        alexDescTextAdptive.html('<span>Мы занимаемся обработкой фото и графики.</span>');
+                    }, 600);
+                }
+
+            });
+            /******/
+
 
             var alexName = $('#photoRow .dashed:last-child #alex p'), alexImg = $('#photoRow .dashed:last-child #alex img'),
                 alexPhotoShootSign = $('#photoRow .dashed:last-child .desc p:nth-child(3)'), alexDesc = $('#photoRow .dashed:last-child .desc p:nth-child(1)'),
@@ -189,6 +310,7 @@ $(document).ready(function () {
             $('#about-us').remove();
             $('#photoRow').remove();
             $('.flask').remove();
+            $('.adaptive-photo-row:nth-child(2), .adaptive-photo-row:nth-child(3)').remove();
             circle.css({'overflow-y': 'hidden'});
         }
     }
