@@ -51,7 +51,6 @@ body{
 .header{
     display: flex;
     flex-direction: row;
-    width: 100%;
 }
 
 .header p{
@@ -65,6 +64,85 @@ body{
 .header:first-child span{
     color: #d08646;
 }
+
+/*Glitch effect*/
+.glitch{
+    position: relative;
+}
+
+.glitch:after{
+    animation: glitch-animation 2s infinite linear alternate-reverse;
+    clip: rect( 0, 900px, 0, 0 );
+    color: #d08646;
+    content: attr( data-text );
+    left: 2px;
+    overflow: hidden;
+    position: absolute;
+    text-shadow: -1px 0 #dbdbdb;
+    top: 0;
+}
+
+.glitch:before{
+    animation: glitch-animation-2 3s infinite linear alternate-reverse;
+    clip: rect( 0, 900px, 0, 0 );
+    color: #d08646;
+    content: attr( data-text );
+    left: -2px;
+    overflow: hidden;
+    position: absolute;
+    text-shadow: 1px 0 #4e414a;
+    top: 0;
+}
+
+/* Expanded Animations */
+@keyframes glitch-animation {
+    0% { clip: rect(42px, 9999px, 44px, 0);}
+    5% { clip: rect(12px, 9999px, 59px, 0);}
+    10%{ clip: rect(48px, 9999px, 29px, 0);}
+    15.0% { clip: rect(42px, 9999px, 73px, 0);}
+    20% { clip: rect(63px, 9999px, 27px, 0);}
+    25% { clip: rect(34px, 9999px, 55px, 0);}
+    30.0% {clip: rect(86px, 9999px, 73px, 0);}
+    35% {clip: rect(20px, 9999px, 20px, 0);}
+    40% {clip: rect(26px, 9999px, 60px, 0);}
+    45% {clip: rect(25px, 9999px, 66px, 0);}
+    50% {clip: rect(57px, 9999px, 98px, 0);}
+    55.0% {clip: rect(5px, 9999px, 46px, 0);}
+    60.0% {clip: rect(82px, 9999px, 31px, 0);}
+    65% {clip: rect(54px, 9999px, 27px, 0);}
+    70% {clip: rect(28px, 9999px, 99px, 0);}
+    75% {clip: rect(45px, 9999px, 69px, 0);}
+    80% {clip: rect(23px, 9999px, 85px, 0);}
+    85.0% {clip: rect(54px, 9999px, 84px, 0);}
+    90% {clip: rect(45px, 9999px, 47px, 0);}
+    95% {clip: rect(37px, 9999px, 20px, 0);}
+    100% {clip: rect(4px, 9999px, 91px, 0);}
+}
+@keyframes glitch-animation-2 {
+    0% {clip: rect(65px, 9999px, 100px, 0);}
+    5% {clip: rect(52px, 9999px, 74px, 0);}
+    10% {clip: rect(79px, 9999px, 85px, 0);}
+    15.0% {clip: rect(75px, 9999px, 5px, 0);}
+    20% {clip: rect(67px, 9999px, 61px, 0);}
+    25% {clip: rect(14px, 9999px, 79px, 0);}
+    30.0% {clip: rect(1px, 9999px, 66px, 0);}
+    35% {clip: rect(86px, 9999px, 30px, 0);}
+    40% {clip: rect(23px, 9999px, 98px, 0);}
+    45% {clip: rect(85px, 9999px, 72px, 0);}
+    50% {clip: rect(71px, 9999px, 75px, 0);}
+    55.0% {clip: rect(2px, 9999px, 48px, 0);}
+    60.0% {clip: rect(30px, 9999px, 16px, 0);}
+    65% {clip: rect(59px, 9999px, 50px, 0);}
+    70% {clip: rect(41px, 9999px, 62px, 0);}
+    75% {clip: rect(2px, 9999px, 82px, 0);}
+    80% {clip: rect(47px, 9999px, 73px, 0);}
+    85.0% {clip: rect(3px, 9999px, 27px, 0);}
+    90% {clip: rect(26px, 9999px, 55px, 0);}
+    95% {clip: rect(42px, 9999px, 97px, 0);}
+    100% {clip: rect(38px, 9999px, 49px, 0);}
+}
+
+/*////////////*/
 .header img{
   padding-left: 20px;
   margin-top: 5px;
@@ -86,36 +164,88 @@ body{
     text-align: center;
 }
 
-.nav-list #menu li:nth-child(1):before{
+
+.nav-list #menu .home:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f015';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.nav-list #menu li:nth-child(2):before{
+.home-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f015';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.nav-list #menu .info:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f05a';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.nav-list #menu li:nth-child(3):before{
+.info-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f05a';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.nav-list #menu .contact:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f0e0';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.nav-list #menu li:nth-child(4):before{
+.contact-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f0e0';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.nav-list #menu .portfolio:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f02d';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.portfolio-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f02d';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
+}
+
+/*Animate changing color of nav and social*/
+@keyframes iconColorAnim {
+    0%{color: #d08646;}
+    100%{color: #4e414a;}
+}
+
+@keyframes iconBackColorAnim {
+    0%{color: #4e414a;}
+    100%{color: #d08646;}
 }
 
 .nav-list #menu li:hover:before{
@@ -129,48 +259,88 @@ body{
     bottom: 0;
 }
 
-.social #social-menu li:first-child:before{
+.social #social-menu .vk:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f189';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.vk-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f189';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:first-child:hover:before{
     color: #4E729A;
 }
 
-.social #social-menu li:nth-child(2):before{
+.social #social-menu .whatsApp:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f232';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.whatsApp-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f232';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:nth-child(2):hover:before{
     color: #43d854;
 }
 
-.social #social-menu li:nth-child(3):before{
+.social #social-menu .github:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f113';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.github-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f113';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:nth-child(3):hover:before{
     color: black;
 }
 
-.social #social-menu li:last-child:before{
+.social #social-menu .facebook:before{
     font-family: FontAwesome;
     font-size: 20pt;
     content: '\f230';
     color: #d08646;
     cursor: pointer;
+    animation: iconBackColorAnim 0.5s 1;
+}
+
+.facebook-of-bottom:before{
+    font-family: FontAwesome;
+    font-size: 20pt;
+    content: '\f230';
+    color: #4e414a;
+    cursor: pointer;
+    animation: iconColorAnim 0.5s 1;
 }
 
 .social #social-menu li:last-child:hover:before{
@@ -221,21 +391,6 @@ body{
     text-align: center;
 }
 
-.content #arrowDown:before{
-    position: absolute;
-    z-index: 1;
-    bottom: 100px;
-    font-family: FontAwesome;
-    font-size: 50px;
-    content: '\f107';
-    color: #d08646;
-    margin-left: calc(50% - 15px);
-    cursor: pointer;
-    animation: arrowDownAnimation;
-    animation-iteration-count: infinite;
-    animation-duration: 800ms;
-
-}
 .footer{
     display: flex;
     position: fixed;
@@ -284,10 +439,15 @@ body{
     width: 200px;
     height: 100px;
     background-color: white;
+    background: -webkit-linear-gradient(left, white , #E4E4E4);
+    background: -o-linear-gradient(right, white, #E4E4E4);
+    background: -moz-linear-gradient(right, white, #E4E4E4);
+    background: linear-gradient(to right, white , #E4E4E4);
+    box-shadow: 3px -2px 5px 2px rgba(0, 0, 0, 0.7);
     border-radius: 50%;
     text-align: center;
     line-height: 50px;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
 }
 
 
@@ -297,9 +457,14 @@ body{
     width: 40px;
     height: 40px;
     background-color: white;
+    background: -webkit-linear-gradient(left, white , #E4E4E4);
+    background: -o-linear-gradient(right, white, #E4E4E4);
+    background: -moz-linear-gradient(right, white, #E4E4E4);
+    background: linear-gradient(to right, white , #E4E4E4);
+    box-shadow: 3px -2px 5px 2px rgba(0, 0, 0, 0.7);
     border-radius: 50%;
     margin-left: 140px;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
 }
 
 #third-bubble{
@@ -307,8 +472,13 @@ body{
     width: 20px;
     height: 20px;
     background-color: white;
+    background: -webkit-linear-gradient(left, white , #E4E4E4);
+    background: -o-linear-gradient(right, white, #E4E4E4);
+    background: -moz-linear-gradient(right, white, #E4E4E4);
+    background: linear-gradient(to right, white , #E4E4E4);
+    box-shadow: 3px -2px 5px 2px rgba(0, 0, 0, 0.7);
     border-radius: 50%;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     margin-left: 180px;
     top: 155px;
 }
@@ -450,7 +620,7 @@ body{
 
 /*
 *Thinking bubbles animation adaptation (and disappearing).
-*1. For Laptops
+*1. For Tablets
 *2. For Large mobiles
 *3. For Middle mobiles
 *4. For Small mobiles
@@ -527,6 +697,9 @@ body{
 /*2. Thinking, Surprise and Pleased*/
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 499px){
+
+    #photoRow{top: 60px;}
+
     /*Thinking*/
     @keyframes thirdBubbleAnim{
         0%{width: 0; height: 0; margin-left: 50px; margin-top: 10px;}
@@ -624,103 +797,221 @@ body{
 
 /*3. Thinking, Surprise and Pleased*/
 
-@media only screen and (min-device-width: 321px) and (max-device-width: 389px){
+@media only screen and (min-device-width: 325px) and (max-device-width: 389px){
+
+    #photoRow{top: 100px;}
+
+    #bubbles p{ font-size: 12pt;}
+
+    #first-bubble{ width: 130px; height: 65px; }
+
+    #second-bubble{ width: 25px; height: 25px; }
+
+    #third-bubble{ width: 15px; height: 15px; }
 
     /*Thinking*/
     @keyframes thirdBubbleAnim{
-        0%{width: 0; height: 0; margin-left: 50px; margin-top: 10px;}
-        100%{width: 20px; height: 20px; margin-left: 40px; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: 25px; margin-top: 7.5px;}
+        100%{width: 15px; height: 15px; margin-left: 17.5px; margin-top: 0;}
     }
 
     @keyframes secondBubbleAnim{
-        0%{width: 0; height: 0; margin-left: 20px; margin-top: 20px;}
-        100%{width: 40px; height: 40px; margin-left: 0; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: -8px; margin-top: 12.5px;}
+        100%{width: 25px; height: 25px; margin-left: -20.5px; margin-top: 0;}
     }
 
     @keyframes firstBubbleAnim{
-        0%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
-        100%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: -30px; margin-top: 32.5px;}
+        100%{width: 130px; height: 65px; margin-left: -85px; margin-top: 0;}
     }
 
     @keyframes thirdBubbleDisappear {
-        0%{width: 20px; height: 20px; margin-left: 40px; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: 50px; margin-top: 10px;}
+        0%{width: 15px; height: 15px; margin-left: 17.5px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 25px; margin-top: 7.5px;}
     }
 
     @keyframes  secondBubbleDisappear{
-        0%{width: 40px; height: 40px; margin-left: 0; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: 20px; margin-top: 20px;}
+        0%{width: 25px; height: 25px; margin-left: -20.5px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -8px; margin-top: 12.5px;}
     }
 
     @keyframes firstBubbleDisappear {
-        0%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
+        0%{width: 130px; height: 65px; margin-left: -85px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -30px; margin-top: 32.5px;}
     }
 
     /*Surprise*/
     @keyframes thirdBubbleAnim2{
-        0%{width: 0; height: 0; margin-left: 10px; margin-top: 10px;}
-        100%{width: 20px; height: 20px; margin-left: 0; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: -10px; margin-top: 7.5px;}
+        100%{width: 15px; height: 15px; margin-left: -17.5px; margin-top: 0;}
     }
 
     @keyframes secondBubbleAnim2 {
-        0%{width: 0; height: 0; margin-left: 0; margin-top: 20px;}
-        100%{width: 40px; height: 40px; margin-left: -20px; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: -22.5px; margin-top: 12.5px;}
+        100%{width: 25px; height: 25px; margin-left: -35px; margin-top: 0;}
     }
 
     @keyframes firstBubbleAnim2{
-        0%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
-        100%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: -40px; margin-top: 32.5px;}
+        100%{width: 130px; height: 65px; margin-left: -105px; margin-top: 0;}
     }
 
     @keyframes thirdBubbleDisappear2 {
-        0%{width: 20px; height: 20px; margin-left: 0; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: 10px; margin-top: 10px;}
+        0%{width: 15px; height: 15px; margin-left: -17.5px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -10px; margin-top: 7.5px;}
     }
 
     @keyframes  secondBubbleDisappear2 {
-        0%{width: 40px; height: 40px; margin-left: -20px; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: 0; margin-top: 20px;}
+        0%{width: 25px; height: 25px; margin-left: -35px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -22.5px; margin-top: 12.5px;}
     }
 
     @keyframes firstBubbleDisappear2 {
-        0%{width: 150px; height: 75px; margin-left: -95px; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: -20px; margin-top: 50px;}
+        0%{width: 130px; height: 65px; margin-left: -105px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -40px; margin-top: 32.5px;}
     }
 
     /*Pleased*/
     @keyframes thirdBubbleAnim3{
-        0%{width: 0; height: 0; margin-left: 210px; margin-top: 10px;}
-        100%{width: 20px; height: 20px; margin-left: 200px; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: 220px; margin-top: 7.5px;}
+        100%{width: 15px; height: 15px; margin-left: 212.5px; margin-top: 0;}
     }
 
     @keyframes secondBubbleAnim3 {
-        0%{width: 0; height: 0; margin-left: 220px; margin-top: 0;}
-        100%{width: 40px; height: 40px; margin-left: 200px; margin-top: -20px;}
+        0%{width: 0; height: 0; margin-left: 230px; margin-top: 12.5px;}
+        100%{width: 25px; height: 25px; margin-left: 217.5px; margin-top: 0;}
     }
 
     @keyframes firstBubbleAnim3{
-        0%{width: 0; height: 0; margin-left: 160px; margin-top: 50px;}
-        100%{width: 160px; height: 80px; margin-left: 80px; margin-top: 0;}
+        0%{width: 0; height: 0; margin-left: 165px; margin-top: 32.5px;}
+        100%{width: 130px; height: 65px; margin-left: 100px; margin-top: 0;}
     }
 
     @keyframes thirdBubbleDisappear3 {
-        0%{width: 20px; height: 20px; margin-left: 200px; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: 210px; margin-top: 10px;}
+        0%{width: 15px; height: 15px; margin-left: 212.5px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 220px; margin-top: 7.5px;}
     }
 
     @keyframes  secondBubbleDisappear3 {
-        0%{width: 40px; height: 40px; margin-left: 200px; margin-top: -20px;}
-        100%{width: 0; height: 0; margin-left: 220px; margin-top: 0;}
+        0%{width: 25px; height: 25px; margin-left: 217.5px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 230px; margin-top: 12.5px;}
     }
 
     @keyframes firstBubbleDisappear3 {
-        0%{width: 160px; height: 80px; margin-left: 80px; margin-top: 0;}
-        100%{width: 0; height: 0; margin-left: 160px; margin-top: 50px;}
+        0%{width: 130px; height: 65px; margin-left: 100px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 165px; margin-top: 32.5px;}
     }
 
 }
 
+/*4. Thinking, Surprise and Pleased*/
+
+@media only screen and (min-device-width: 250px) and (max-device-width: 324px){
+
+    #photoRow{top: 120px;}
+
+    #bubbles p{ font-size: 10pt;}
+
+    #first-bubble{ width: 120px; height: 60px; }
+
+    #second-bubble{ width: 20px; height: 20px; }
+
+    #third-bubble{ width: 10px; height: 10px; }
+
+    /*Thinking*/
+    @keyframes thirdBubbleAnim{
+        0%{width: 0; height: 0; margin-left: 20px; margin-top: 10px;}
+        100%{width: 10px; height: 10px; margin-left: 15px; margin-top: 5px;}
+    }
+
+    @keyframes secondBubbleAnim{
+        0%{width: 0; height: 0; margin-left: 10px; margin-top: 20px;}
+        100%{width: 20px; height: 20px; margin-left: 0; margin-top: 10px;}
+    }
+
+    @keyframes firstBubbleAnim{
+        0%{width: 0; height: 0; margin-left: -20px; margin-top: 30px;}
+        100%{width: 120px; height: 60px; margin-left: -65px; margin-top: 0;}
+    }
+
+    @keyframes thirdBubbleDisappear {
+        0%{width: 10px; height: 10px; margin-left: 15px; margin-top: 5px;}
+        100%{width: 0; height: 0; margin-left: 20px; margin-top: 10px;}
+    }
+
+    @keyframes  secondBubbleDisappear{
+        0%{width: 20px; height: 20px; margin-left: 0; margin-top: 10px;}
+        100%{width: 0; height: 0; margin-left: 10px; margin-top: 20px;}
+    }
+
+    @keyframes firstBubbleDisappear {
+        0%{width: 120px; height: 60px; margin-left: -65px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -20px; margin-top: 30px;}
+    }
+
+    /*Surprise*/
+    @keyframes thirdBubbleAnim2{
+        0%{width: 0; height: 0; margin-left: -15px; margin-top: 10px;}
+        100%{width: 10px; height: 10px; margin-left: -20px; margin-top: 5px;}
+    }
+
+    @keyframes secondBubbleAnim2 {
+        0%{width: 0; height: 0; margin-left: -25px; margin-top: 20px;}
+        100%{width: 20px; height: 20px; margin-left: -35px; margin-top: 10px;}
+    }
+
+    @keyframes firstBubbleAnim2{
+        0%{width: 0; height: 0; margin-left: -45px; margin-top: 30px;}
+        100%{width: 120px; height: 60px; margin-left: -90px; margin-top: 0;}
+    }
+
+    @keyframes thirdBubbleDisappear2 {
+        0%{width: 10px; height: 10px; margin-left: -20px; margin-top: 5px;}
+        100%{width: 0; height: 0; margin-left: -15px; margin-top: 10px;}
+    }
+
+    @keyframes  secondBubbleDisappear2 {
+        0%{width: 20px; height: 20px; margin-left: -35px; margin-top: 10px;}
+        100%{width: 0; height: 0; margin-left: -25px; margin-top: 20px;}
+    }
+
+    @keyframes firstBubbleDisappear2 {
+        0%{width: 120px; height: 60px; margin-left: -90px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: -45px; margin-top: 30px;}
+    }
+
+    /*Pleased*/
+    @keyframes thirdBubbleAnim3{
+        0%{width: 0; height: 0; margin-left: 150px; margin-top: 10px;}
+        100%{width: 10px; height: 10px; margin-left: 145px; margin-top: 5px;}
+    }
+
+    @keyframes secondBubbleAnim3 {
+        0%{width: 0; height: 0; margin-left: 170px; margin-top: 5px;}
+        100%{width: 20px; height: 20px; margin-left: 160px; margin-top: -5px;}
+    }
+
+    @keyframes firstBubbleAnim3{
+        0%{width: 0; height: 0; margin-left: 160px; margin-top: 30px;}
+        100%{width: 120px; height: 60px; margin-left: 100px; margin-top: 0;}
+    }
+
+    @keyframes thirdBubbleDisappear3 {
+        0%{width: 10px; height: 10px; margin-left: 145px; margin-top: 5px;}
+        100%{width: 0; height: 0; margin-left: 150px; margin-top: 10px;}
+    }
+
+    @keyframes  secondBubbleDisappear3 {
+        0%{width: 20px; height: 20px; margin-left: 160px; margin-top: -5px;}
+        100%{width: 0; height: 0; margin-left: 170px; margin-top: 5px;}
+    }
+
+    @keyframes firstBubbleDisappear3 {
+        0%{width: 120px; height: 60px; margin-left: 100px; margin-top: 0;}
+        100%{width: 0; height: 0; margin-left: 160px; margin-top: 30px;}
+    }
+
+}
 
 /*"About Us" styles*/
 
@@ -771,7 +1062,7 @@ body{
 
 #photoRow{
     position: relative;
-    margin-top: 50px;
+    margin-top: -120px;
     display: flex;
     flex-direction: row;
     width: 90%;
@@ -906,6 +1197,204 @@ font-weight: 800;
 
 @keyframes descAnimationOut { from{width: 100%;} to{width: 70%;} }
 
+/*Pavel photo row*/
+.adaptive-photo-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-flow: wrap;
+}
+
+.adaptive-photo-row ul{
+    list-style: none;
+    padding: 10px 0 10px 10px;
+    margin: 0;
+    animation: listShow 1.5s 1;
+}
+
+.adaptive-photo-row ul li{
+    padding-left: 1em;
+    text-indent: -8px;
+}
+
+.adaptive-photo-row li:before{
+    font-family: FontAwesome;
+    font-size: 6pt;
+    content: '\f111   ';
+    color: #d08646;
+}
+
+@keyframes listShow{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.adaptive-photo-row .pavel-row{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.adaptive-photo-row .pavel-row .image{
+    width: 50%;
+}
+
+.adaptive-photo-row .pavel-row .who-is{
+    width: 50%;
+}
+
+.adaptive-photo-row .pavel-row .who-is p{
+    font-family: Railway;
+    font-size: 12pt;
+    color: #4e414a;
+    font-weight: 800;
+}
+
+.adaptive-photo-row .pavel-row .who-is p:last-child{
+margin-top: -10px;
+}
+
+.adaptive-photo-row .pavel-row .image img{
+margin-left: 40%;
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: black url("../img/my_photoes/paxa.jpg") no-repeat center;
+background-size: cover;
+}
+
+.adaptive-photo-row .pavel-desc{
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.adaptive-photo-row .pavel-desc p{
+    position: relative;
+    font-family: Railway;
+    color: #4e414a;
+    font-size: 10pt;
+    font-weight: 800;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    word-break: break-all;
+    padding: 10px 5px 10px 5px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    animation: floatingAnimation 2s infinite;
+}
+
+.adaptive-photo-row .pavel-desc p span{
+    animation: listShow 1s 1;
+}
+
+.adaptive-photo-row .pavel-desc p:before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    top: -25px;
+    left: 58px;
+    border: 15px solid transparent;
+    border-bottom-color:  white;
+}
+
+/*Alex photo row*/
+
+
+.adaptive-photo-row .alex-row{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.adaptive-photo-row .alex-row .image{
+    width: 50%;
+}
+
+.adaptive-photo-row .alex-row .who-is{
+    width: 50%;
+}
+
+.adaptive-photo-row .alex-row .image img{
+    margin-left: 10%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: black url("../img/my_photoes/lexa.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.adaptive-photo-row .alex-row .who-is p{
+    text-align: right;
+    font-family: Railway;
+    font-size: 12pt;
+    color: #4e414a;
+    font-weight: 800;
+}
+
+.adaptive-photo-row .alex-row .who-is p:last-child{
+    margin-top: -10px;
+}
+
+.adaptive-photo-row .alex-desc{
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.adaptive-photo-row .alex-desc p{
+
+    position: relative;
+    font-family: Railway;
+    color: #4e414a;
+    font-size: 10pt;
+    font-weight: 800;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    line-height: 20px;
+    height: 40px;
+    padding: 10px 5px 10px 5px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    animation: floatingAnimation 2s infinite;
+}
+
+.adaptive-photo-row .alex-desc p span{
+    animation: listShow 1s 1;
+}
+
+.adaptive-photo-row .alex-desc p:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    top: -25px;
+    right: 66px;
+    border: 15px solid transparent;
+    border-bottom-color:  white;
+}
+
+/*Adaptation for bubble speech screen*/
+/*Middle screen*/
+@media screen and (min-device-width: 321px) and (max-device-width: 375px){
+    .adaptive-photo-row .alex-row{margin-top: 150px;}
+    .adaptive-photo-row .alex-desc p:before{right: 83px;}
+    .adaptive-photo-row .alex-desc p{line-height: 40px;}
+    .adaptive-photo-row .pavel-desc p:before{left: 62px;}
+}
+
 /*Nav sandwich icon*/
 
 .c-hamburger {
@@ -932,7 +1421,7 @@ font-weight: 800;
     outline: none;
 }
 
-.c-hamburger span {
+.c-hamburger .original {
     display: block;
     position: absolute;
     top: 44px;
@@ -940,10 +1429,22 @@ font-weight: 800;
     right: 18px;
     height: 4px;
     background: #d08646;
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.c-hamburger span::before,
-.c-hamburger span::after {
+.ham-of-bottom{
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 4px;
+    background: #4e414a;
+    animation: iconColorAnim 0.5s 1;
+}
+
+.c-hamburger .original::before,
+.c-hamburger .original::after {
     position: absolute;
     display: block;
     left: 0;
@@ -951,36 +1452,70 @@ font-weight: 800;
     height: 4px;
     background-color: #d08646;
     content: "";
+    animation: iconBackColorAnim 0.5s 1;
 }
 
-.c-hamburger span::before {
+.ham-of-bottom::after,
+.ham-of-bottom::before{
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #4e414a;
+    content: "";
+    animation: iconColorAnim 0.5s 1;
+}
+
+.c-hamburger .original::before {
     top: -13px;
 }
 
-.c-hamburger span::after {
+.ham-of-bottom::before{
+    top: -13px;
+}
+
+.c-hamburger .original::after {
     bottom: -13px;
 }
 
+.ham-of-bottom:after{
+    bottom: -13px;
+}
 .c-hamburger--htx {
     background: none;
     /*background-color: !*#d08646*! none;*/
 }
 
-.c-hamburger--htx span {
+.c-hamburger--htx .original {
     /*transition: background 0s 0.3s;*/
 }
 
-.c-hamburger--htx span::before,
-.c-hamburger--htx span::after {
+.c-hamburger--htx .original::before,
+.c-hamburger--htx .original::after {
     transition-duration: 0.3s, 0.3s;
     transition-delay: 0.3s, 0s;
 }
 
-.c-hamburger--htx span::before {
+.ham-of-bottom::before,
+.ham-of-bottom::after{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx .original::before {
     transition-property: top, transform;
 }
 
-.c-hamburger--htx span::after {
+.ham-of-bottom::before{
+    transition-property: top, transform;
+}
+
+.c-hamburger--htx .original::after {
+    transition-property: bottom, transform;
+}
+
+.ham-of-bottom::after{
     transition-property: bottom, transform;
 }
 
@@ -989,22 +1524,41 @@ font-weight: 800;
     /*background-color: !*#d08646*! none;*/
 }
 
-.c-hamburger--htx.is-active span {
+.c-hamburger--htx.is-active .original{
     background: none;
 }
 
-.c-hamburger--htx.is-active span::before {
+.c-hamburger.is-active .ham-of-bottom{
+    background: none;
+}
+
+.c-hamburger--htx.is-active .original::before {
     top: 0;
     transform: rotate(45deg);
 }
 
-.c-hamburger--htx.is-active span::after {
+.c-hamburger--htx.is-active .ham-of-bottom::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active .original::after {
     bottom: 0;
     transform: rotate(-45deg);
 }
 
-.c-hamburger--htx.is-active span::before,
-.c-hamburger--htx.is-active span::after {
+.c-hamburger--htx.is-active .ham-of-bottom::after{
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active .original::before,
+.c-hamburger--htx.is-active .original::after {
+    transition-delay: 0s, 0.3s;
+}
+
+.c-hamburger--htx.is-active .ham-of-bottom::before,
+.c-hamburger--htx.is-active .ham-of-bottom::after{
     transition-delay: 0s, 0.3s;
 }
 
@@ -1012,6 +1566,17 @@ font-weight: 800;
     .nav-list{
         top: 20px;
     }
+
+    .social{
+        position: fixed;
+        z-index: 1;
+    }
+
+    .nav-list{
+        position: fixed;
+        z-index: 1;
+    }
+
 }
 @media only screen and (max-device-width: 800px){
     .social{
@@ -1062,5 +1627,251 @@ font-weight: 800;
     .c-hamburger{
         margin-right: 1%;
     }
+}
+
+/*Animated Flask*/
+
+.flask {
+    margin-top: 20px;
+    height: 405px;
+    width: 368px;
+    position: absolute;
+    z-index: -1;
+    margin-left: calc(50% - 184px);
+}
+
+.flask_bottom {
+    bottom: 0;
+    position: absolute;
+}
+
+.big_triangle {
+    overflow: hidden;
+    position: relative;
+    width: 368px;
+    height: 250px;
+}
+
+.big_triangle:before, .big_triangle:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 250px solid #ebeaea;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.big_triangle:before {
+    border-right: 152px solid transparent;
+    left: 0;
+}
+
+.big_triangle:after {
+    border-left: 152px solid transparent;
+    right: 0;
+}
+
+
+#flask_bottom {
+    position: absolute;
+    background-color: #4e414a;
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+}
+
+.inner-liquid{
+    background-color: #d08646;
+    width: 10px;
+    height: 50%;
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 20px;
+    -webkit-animation-name: doWave;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+
+@-webkit-keyframes doWave{
+    0%{height:50%;}
+    50%{height:30%;}
+    100%{height:50%;}
+}
+
+.flask_throat {
+overflow: hidden;
+height: 155px;
+width: 66px;
+position: absolute;
+left: 151px;
+top: 0;
+}
+
+
+
+.flask_throat_one {
+position: absolute;
+transform: rotate(24deg);
+transform-origin: right top;
+background-color: #4e414a;
+width: 150px;
+height: 50px;
+position: absolute;
+z-index: 3;
+right: -26px;
+top: 110px;
+}
+
+.flask_throat_two {
+position: absolute;
+transform: rotate(20deg);
+transform-origin: right top;
+background-color: #4e414a;
+width: 150px;
+height: 60px;
+position: absolute;
+z-index: 3;
+right: -35px;
+top: 40px;
+}
+
+.flask_throat_three {
+position: absolute;
+background-color: #4e414a;
+width: 100%;
+height: 50px;
+position: absolute;
+z-index: 3;
+right: 0;
+bottom: 0;
+}
+
+.flask_throat_four {
+position: absolute;
+transform: rotate(20deg);
+transform-origin: right top;
+background-color: #4e414a;
+width: 150px;
+height: 20px;
+position: absolute;
+z-index: 3;
+right: -45px;
+top: 100px;
+}
+
+
+.circle-flask {
+    border-radius: 50%;
+    border: 1px solid #4e414a;
+    position: absolute;
+    left: 45%;
+    top: 30px;
+}
+
+.little_circle {
+    width: 15px;
+    height: 15px;
+}
+
+.little_circle_white {
+    background-color: #d08646;
+    left: 48%;
+}
+
+.little_circle_purpure {
+    background-color: #6c49ac;
+    border: 1px solid #6c49ac;
+    left: 52%;
+}
+
+.little_circle_blue {
+    background-color: #4e414a;
+    border: 1px solid #4e414a;
+    left: 45%;
+}
+
+.small_circle {
+    text-align: center;
+    line-height: 30px;
+    font-size: 15pt;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+}
+
+.middle_circle {
+    text-align: center;
+    font-size: 20pt;
+    line-height: 40px;
+    width: 45px;
+    height: 45px;
+}
+
+
+.circle-flask {
+    animation-name: circle;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+}
+
+.little_circle_white {
+    animation-duration: 2000ms;
+}
+
+.little_circle_purpure {
+    animation-duration: 2000ms;
+    animation-delay: 100ms;
+}
+
+.little_circle_blue {
+    animation-duration: 2000ms;
+    animation-delay: 200ms;
+}
+
+.small_circle {
+    animation-duration: 4200ms;
+    animation-delay: 300ms;
+}
+
+@keyframes circle {
+    0% {
+        transform: translateZ(0px) translateY(20px) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateZ(0px) translateY(-200px) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+}
+
+/*Adaptation animated flask to small screen*/
+@media screen and (min-device-width: 250px) and (max-device-width: 320px){
+    .flask{margin-top: 320px; width: 320px; margin-left: calc(50% - 160px); height: 357px;}
+    .big_triangle{width: 320px; height: 230px;}
+    .big_triangle:before {border-right: 132px solid transparent; left: 0;}
+    .big_triangle:after {border-left: 132px solid transparent; right: 0; }
+    .flask_throat{width: 56px; left: 132px;}
+    .middle_circle{width: 40px; height: 40px; line-height: 35px;}
+}
+/*Adaptation animated flask to middle screen*/
+@media screen and (min-device-width: 321px) and (max-device-width: 375px){
+    .flask{margin-top: 325px; width: 350px; margin-left: calc(50% - 175px); height: 385px;}
+    .big_triangle{width: 350px; height: 230px;}
+    .big_triangle:before {border-right: 142px solid transparent; left: 0;}
+    .big_triangle:after {border-left: 142px solid transparent; right: 0; }
+    .flask_throat{width: 65px; left: 142px;}
+    .middle_circle{width: 40px; height: 40px; line-height: 35px;}
 }
 
