@@ -1197,6 +1197,12 @@ font-weight: 800;
 
 @keyframes descAnimationOut { from{width: 100%;} to{width: 70%;} }
 
+/*Correction for middle laptop*/
+@media screen and (min-device-width: 1300px){
+    #about-us{margin-top: 5%;}
+    #photoRow{margin-top: -50px;}
+}
+
 /*Pavel photo row*/
 .adaptive-photo-row{
     display: flex;
@@ -1390,6 +1396,14 @@ background-size: cover;
 /*Middle screen*/
 @media screen and (min-device-width: 321px) and (max-device-width: 375px){
     .adaptive-photo-row .alex-row{margin-top: 150px;}
+    .adaptive-photo-row .alex-desc p:before{right: 83px;}
+    .adaptive-photo-row .alex-desc p{line-height: 40px;}
+    .adaptive-photo-row .pavel-desc p:before{left: 62px;}
+}
+
+/*Large screen*/
+@media screen and (min-device-width: 376px) and (max-device-width: 425px){
+    .adaptive-photo-row .alex-row{margin-top: 130px;}
     .adaptive-photo-row .alex-desc p:before{right: 83px;}
     .adaptive-photo-row .alex-desc p{line-height: 40px;}
     .adaptive-photo-row .pavel-desc p:before{left: 62px;}
@@ -1871,7 +1885,16 @@ top: 100px;
     .big_triangle{width: 350px; height: 230px;}
     .big_triangle:before {border-right: 142px solid transparent; left: 0;}
     .big_triangle:after {border-left: 142px solid transparent; right: 0; }
-    .flask_throat{width: 65px; left: 142px;}
+    .flask_throat{width: 65.5px; left: 142px;}
     .middle_circle{width: 40px; height: 40px; line-height: 35px;}
 }
 
+/*Adaptation animated flask to large screen*/
+@media screen and (min-device-width: 376px) and (max-device-width: 425px){
+    .flask{margin-top: 285px; width: 350px; margin-left: calc(50% - 175px); height: 385px;}
+    .big_triangle{width: 350px; height: 230px;}
+    .big_triangle:before {border-right: 142px solid transparent; left: 0;}
+    .big_triangle:after {border-left: 142px solid transparent; right: 0; }
+    .flask_throat{width: 65px; left: 142px;}
+    .middle_circle{width: 40px; height: 40px; line-height: 35px;}
+}

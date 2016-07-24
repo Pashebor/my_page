@@ -163,7 +163,11 @@ $(document).ready(function () {
                     
                 }else {
                     countAlexAdaptiveSpeech = 0;
-                    alexDescTextAdptive.animate({'height': '40px', 'line-height': '20px'}, 400);
+                    if(window.innerWidth > 320 && window.innerWidth < 375){
+                        alexDescTextAdptive.animate({'height': '40px', 'line-height': '40px'}, 400);
+                    } else{
+                        alexDescTextAdptive.animate({'height': '40px', 'line-height': '20px'}, 400);
+                    }
                     alexDescTextAdptive.css('text-align', 'center');
                     alexDescTextAdptive.html('');
 
